@@ -8,9 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@class SettingsViewController;
+@class ChatViewController;
+@class CallViewController;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+{
+
+}
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (weak, nonatomic) IBOutlet UINavigationController *navigationController;
+@property (weak, nonatomic) IBOutlet SettingsViewController *settingsViewControler;
+@property (weak, nonatomic) IBOutlet ChatViewController *chatViewControler;
 
 
 @end

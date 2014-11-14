@@ -14,6 +14,9 @@
 
 @implementation AppDelegate
 
+@synthesize navigationController;
+@synthesize settingsViewControler;
+@synthesize chatViewControler;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
