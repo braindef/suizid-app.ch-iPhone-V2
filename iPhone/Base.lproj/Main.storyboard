@@ -16,27 +16,49 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="hbz-8U-4YT">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="Ww7-mI-y5V">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DAC-hF-HC4">
-                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Settings">
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="polar_bear_help_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="CZs-xc-Lg2">
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="F94-wT-e1f"/>
+                                    <constraint firstAttribute="height" constant="200" id="jQe-Qa-Am1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mQ-T9-fBe">
+                                <rect key="frame" x="179" y="72" width="243" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2c-KE-4ac">
+                                <rect key="frame" x="214" y="550" width="172" height="30"/>
+                                <state key="normal" title="I need help">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="xiD-cW-vdX" kind="show" id="z6a-YJ-byL"/>
-                                </connections>
                             </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.84120417869999997" green="0.89055912329999998" blue="0.9124490489" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="CZs-xc-Lg2" secondAttribute="centerX" id="6hW-aj-EuJ"/>
+                            <constraint firstAttribute="centerX" secondItem="s2c-KE-4ac" secondAttribute="centerX" id="X4r-2P-4Jn"/>
+                            <constraint firstAttribute="centerY" secondItem="CZs-xc-Lg2" secondAttribute="centerY" id="gfN-9s-LzS"/>
+                            <constraint firstAttribute="centerX" secondItem="0mQ-T9-fBe" secondAttribute="centerX" id="qfN-Jg-fSY"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="s2c-KE-4ac" secondAttribute="bottom" constant="20" id="s14-tU-6ys"/>
+                            <constraint firstItem="0mQ-T9-fBe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="xb0-t3-5we"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hbz-8U-4YT">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="0wi-QI-bR8" userLabel="Settings">
+                            <connections>
+                                <segue destination="xiD-cW-vdX" kind="show" id="Yes-Ag-nSl"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <customObject id="yJk-6R-i8z" customClass="AppDelegate"/>
             </objects>
-            <point key="canvasLocation" x="874" y="793"/>
+            <point key="canvasLocation" x="937" y="793"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7DU-ke-DsN">
@@ -75,19 +97,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="MNE-jR-OiV">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="8Yf-8z-p6t">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4GQ-tG-v5O" userLabel="Chat">
-                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Chat">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="openChat:" destination="xiD-cW-vdX" eventType="touchUpInside" id="wnQ-GG-bFZ"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Chat" id="EVf-Vi-VfF">
                             <connections>
-                                <action selector="openChat:" destination="xiD-cW-vdX" id="2pS-dQ-XdV"/>
+                                <action selector="openChat:" destination="xiD-cW-vdX" id="wDe-dV-nrI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -95,6 +107,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ghj-JJ-Atr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1700" y="793"/>
+        </scene>
+        <!--CallViewController-->
+        <scene sceneID="UP0-VC-cCs">
+            <objects>
+                <viewController id="Nw4-a0-5Cw" userLabel="CallViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tiE-Ih-3yY"/>
+                        <viewControllerLayoutGuide type="bottom" id="CZD-N7-LIF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jGl-IA-14P">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fLD-ZJ-bBn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="937" y="1622"/>
         </scene>
         <!--ChatViewController-->
         <scene sceneID="CBV-cE-zPR">
@@ -107,14 +137,6 @@
                     <view key="view" contentMode="scaleToFill" id="gKr-iB-GB6">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3r-DG-fMr">
-                                <rect key="frame" x="236" y="148" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
@@ -128,4 +150,7 @@
             <point key="canvasLocation" x="1700" y="1622"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="polar_bear_help_full.png" width="1300" height="1300"/>
+    </resources>
 </document>
