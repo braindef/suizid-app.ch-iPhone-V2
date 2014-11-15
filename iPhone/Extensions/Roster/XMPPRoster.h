@@ -4,6 +4,8 @@
   #import <Cocoa/Cocoa.h>
 #endif
 
+#import <UIKit/UIKit.h>
+
 #import "XMPP.h"
 #import "XMPPUser.h"
 #import "XMPPResource.h"

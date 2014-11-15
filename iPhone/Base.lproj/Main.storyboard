@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6V0-V7-4oQ">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -24,13 +23,13 @@
                                     <constraint firstAttribute="height" constant="200" id="jQe-Qa-Am1"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mQ-T9-fBe">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mQ-T9-fBe" userLabel="CallSupporter">
                                 <rect key="frame" x="179" y="72" width="243" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2c-KE-4ac">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2c-KE-4ac" userLabel="Ineedhelp">
                                 <rect key="frame" x="214" y="550" width="172" height="30"/>
                                 <state key="normal" title="I need help">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -105,13 +104,18 @@
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ghj-JJ-Atr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Glf-YX-WPE" customClass="AppDelegate">
+                    <connections>
+                        <outlet property="settingsViewControler" destination="xiD-cW-vdX" id="sWY-bk-80m"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1700" y="793"/>
         </scene>
         <!--CallViewController-->
         <scene sceneID="UP0-VC-cCs">
             <objects>
-                <viewController id="Nw4-a0-5Cw" userLabel="CallViewController" sceneMemberID="viewController">
+                <viewController id="Nw4-a0-5Cw" userLabel="CallViewController" customClass="CallViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tiE-Ih-3yY"/>
                         <viewControllerLayoutGuide type="bottom" id="CZD-N7-LIF"/>
@@ -121,8 +125,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="delegate" destination="5SC-7D-3Cp" id="FN4-1A-Zxo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLD-ZJ-bBn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="5SC-7D-3Cp" customClass="AppDelegate">
+                    <connections>
+                        <outlet property="callViewControler" destination="Nw4-a0-5Cw" id="Nxi-58-5Ii"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="937" y="1622"/>
         </scene>

@@ -156,6 +156,9 @@
 		493BABFF1A17E122007AA487 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 493BAB701A17E122007AA487 /* DDXMLNode.m */; };
 		493BAC001A17E122007AA487 /* build-libidn.sh in Resources */ = {isa = PBXBuildFile; fileRef = 493BAB741A17E122007AA487 /* build-libidn.sh */; };
 		493BAC011A17E122007AA487 /* libidn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAB761A17E122007AA487 /* libidn.a */; };
+		493BAC041A17E270007AA487 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAC031A17E270007AA487 /* libxml2.dylib */; };
+		493BAC061A17E284007AA487 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAC051A17E284007AA487 /* libresolv.dylib */; };
+		493BAC091A17E313007AA487 /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 493BAC081A17E313007AA487 /* CallViewController.m */; };
 		494FE4C31A162F8A007B4CC1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494FE4C21A162F8A007B4CC1 /* SettingsViewController.m */; };
 		494FE4C91A164D0A007B4CC1 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494FE4C81A164D0A007B4CC1 /* ChatViewController.m */; };
 		49609D971A1625ED0096ACC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49609D961A1625ED0096ACC3 /* main.m */; };
@@ -476,6 +479,10 @@
 		493BAB761A17E122007AA487 /* libidn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libidn.a; sourceTree = "<group>"; };
 		493BAB771A17E122007AA487 /* stringprep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringprep.h; sourceTree = "<group>"; };
 		493BAC021A17E140007AA487 /* XMPPFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMPPFramework.h; sourceTree = "<group>"; };
+		493BAC031A17E270007AA487 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		493BAC051A17E284007AA487 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
+		493BAC071A17E313007AA487 /* CallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallViewController.h; sourceTree = "<group>"; };
+		493BAC081A17E313007AA487 /* CallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallViewController.m; sourceTree = "<group>"; };
 		494FE4C11A162F8A007B4CC1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		494FE4C21A162F8A007B4CC1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		494FE4C71A164D0A007B4CC1 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
@@ -500,6 +507,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493BAC061A17E284007AA487 /* libresolv.dylib in Frameworks */,
+				493BAC041A17E270007AA487 /* libxml2.dylib in Frameworks */,
 				493BAC011A17E122007AA487 /* libidn.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1395,7 +1404,9 @@
 		49609D881A1625EC0096ACC3 = {
 			isa = PBXGroup;
 			children = (
-				49609D931A1625ED0096ACC3 /* iPhone */,
+				493BAC051A17E284007AA487 /* libresolv.dylib */,
+				493BAC031A17E270007AA487 /* libxml2.dylib */,
+				49609D931A1625ED0096ACC3 /* suizid-app.ch */,
 				49609DAD1A1625ED0096ACC3 /* iPhoneTests */,
 				49609D921A1625ED0096ACC3 /* Products */,
 			);
@@ -1410,26 +1421,29 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		49609D931A1625ED0096ACC3 /* iPhone */ = {
+		49609D931A1625ED0096ACC3 /* suizid-app.ch */ = {
 			isa = PBXGroup;
 			children = (
 				493BAA0F1A17E0F4007AA487 /* XMPP */,
 				493BAA0C1A17E0AA007AA487 /* Config.h */,
 				493BAA0D1A17E0AA007AA487 /* Config.m */,
-				493BA9F71A17D861007AA487 /* Ressources */,
 				49609D981A1625ED0096ACC3 /* AppDelegate.h */,
 				49609D991A1625ED0096ACC3 /* AppDelegate.m */,
+				493BAC071A17E313007AA487 /* CallViewController.h */,
+				493BAC081A17E313007AA487 /* CallViewController.m */,
 				494FE4C71A164D0A007B4CC1 /* ChatViewController.h */,
 				494FE4C81A164D0A007B4CC1 /* ChatViewController.m */,
 				49609D9B1A1625ED0096ACC3 /* RootViewController.h */,
 				49609D9C1A1625ED0096ACC3 /* RootViewController.m */,
 				494FE4C11A162F8A007B4CC1 /* SettingsViewController.h */,
 				494FE4C21A162F8A007B4CC1 /* SettingsViewController.m */,
+				49609DA31A1625ED0096ACC3 /* LaunchScreen.xib */,
 				49609D9E1A1625ED0096ACC3 /* Main.storyboard */,
 				49609DA11A1625ED0096ACC3 /* Images.xcassets */,
-				49609DA31A1625ED0096ACC3 /* LaunchScreen.xib */,
+				493BA9F71A17D861007AA487 /* Ressources */,
 				49609D941A1625ED0096ACC3 /* Supporting Files */,
 			);
+			name = "suizid-app.ch";
 			path = iPhone;
 			sourceTree = "<group>";
 		};
@@ -1508,6 +1522,11 @@
 				TargetAttributes = {
 					49609D901A1625ED0096ACC3 = {
 						CreatedOnToolsVersion = 6.0.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					49609DA91A1625ED0096ACC3 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -1629,6 +1648,7 @@
 				493BAB9E1A17E122007AA487 /* XMPPIQ+LastActivity.m in Sources */,
 				493BABAF1A17E122007AA487 /* XMPPvCard.xcdatamodeld in Sources */,
 				493BABA91A17E122007AA487 /* XMPPRoomMemoryStorage.m in Sources */,
+				493BAC091A17E313007AA487 /* CallViewController.m in Sources */,
 				493BAB7D1A17E122007AA487 /* XMPPSCRAMSHA1Authentication.m in Sources */,
 				493BABE11A17E122007AA487 /* NSXMLElement+XEP_0203.m in Sources */,
 				493BABDB1A17E122007AA487 /* XMPPStreamManagementStanzas.m in Sources */,
@@ -1835,6 +1855,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = iPhone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1850,6 +1871,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = iPhone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

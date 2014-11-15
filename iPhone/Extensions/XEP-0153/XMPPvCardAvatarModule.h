@@ -9,6 +9,7 @@
  *  NOTE: Currently this implementation only supports downloading and caching avatars.
  */
 
+#import <UIKit/UIKit.h>
 
 #import <Foundation/Foundation.h>
 

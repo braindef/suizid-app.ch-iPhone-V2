@@ -17,6 +17,7 @@
 @synthesize navigationController;
 @synthesize settingsViewControler;
 @synthesize chatViewControler;
+@synthesize callViewControler;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

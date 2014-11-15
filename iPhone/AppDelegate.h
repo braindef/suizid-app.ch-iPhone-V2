@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UINavigationController *navigationController;
 @property (weak, nonatomic) IBOutlet SettingsViewController *settingsViewControler;
 @property (weak, nonatomic) IBOutlet ChatViewController *chatViewControler;
+@property (weak, nonatomic) IBOutlet CallViewController *callViewControler;
 
 
 @end

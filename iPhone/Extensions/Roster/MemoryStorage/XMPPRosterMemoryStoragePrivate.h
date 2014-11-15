@@ -1,3 +1,5 @@
+#import <UIKit/UIKit.h>
+
 #import "XMPPUserMemoryStorageObject.h"
 #import "XMPPResourceMemoryStorageObject.h"
 

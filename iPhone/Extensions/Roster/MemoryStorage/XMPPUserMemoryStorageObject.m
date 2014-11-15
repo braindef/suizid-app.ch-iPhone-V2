@@ -1,3 +1,5 @@
+#import <UIKit/UIKit.h>
+
 #import "XMPP.h"
 #import "XMPPRosterMemoryStoragePrivate.h"
 
