@@ -40,13 +40,21 @@
 }
 */
 - (IBAction)openChat:(id)sender {
-    //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-    //[self dismissViewControllerAnimated:YES completion:NULL];
-    //[[appDelegate navigationController]pushViewController:[appDelegate ] animated:true];
+
+    //[self dismissViewControllerAnimated:YES completion:^{
+    //    [self presentViewController:[ChatViewController alloc] animated:YES completion:nil];
+    //}];
     
-    //[self presentViewController:<#(UIViewController *)#> animated:<#(BOOL)#> completion:<#^(void)completion#>]
+    //ChatViewController *chatViewControler = [[ChatViewController alloc]init];
     
-    //[self dismissViewControllerAnimated:YES completion:nil];
+    //AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    //ChatViewController *chatViewController = appDelegate.chatViewControler;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *chatViewController = [storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
+    
+    [self.navigationController pushViewController:chatViewController animated:YES];
+    //[self presentViewController:chatViewControler animated:YES completion:nil];
     
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message"
                                                         message:@"Button"
