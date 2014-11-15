@@ -169,12 +169,13 @@
 		493BAC191A17F570007AA487 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAC181A17F570007AA487 /* CFNetwork.framework */; };
 		493BAC1B1A17F584007AA487 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAC1A1A17F584007AA487 /* SystemConfiguration.framework */; };
 		493BAC1D1A17F597007AA487 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAC1C1A17F597007AA487 /* Security.framework */; };
+		493BAC201A1819FE007AA487 /* ino3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 493BAC1F1A1819FE007AA487 /* ino3.wav */; };
+		493BAC231A181F6F007AA487 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493BAC211A181F6F007AA487 /* Main.storyboard */; };
 		494FE4C31A162F8A007B4CC1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494FE4C21A162F8A007B4CC1 /* SettingsViewController.m */; };
 		494FE4C91A164D0A007B4CC1 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494FE4C81A164D0A007B4CC1 /* ChatViewController.m */; };
 		49609D971A1625ED0096ACC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49609D961A1625ED0096ACC3 /* main.m */; };
 		49609D9A1A1625ED0096ACC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49609D991A1625ED0096ACC3 /* AppDelegate.m */; };
 		49609D9D1A1625ED0096ACC3 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49609D9C1A1625ED0096ACC3 /* RootViewController.m */; };
-		49609DA01A1625ED0096ACC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49609D9E1A1625ED0096ACC3 /* Main.storyboard */; };
 		49609DA21A1625ED0096ACC3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49609DA11A1625ED0096ACC3 /* Images.xcassets */; };
 		49609DA51A1625ED0096ACC3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49609DA31A1625ED0096ACC3 /* LaunchScreen.xib */; };
 		49609DB11A1625ED0096ACC3 /* iPhoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49609DB01A1625ED0096ACC3 /* iPhoneTests.m */; };
@@ -503,6 +504,8 @@
 		493BAC181A17F570007AA487 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		493BAC1A1A17F584007AA487 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		493BAC1C1A17F597007AA487 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		493BAC1F1A1819FE007AA487 /* ino3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ino3.wav; sourceTree = "<group>"; };
+		493BAC221A181F6F007AA487 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		494FE4C11A162F8A007B4CC1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		494FE4C21A162F8A007B4CC1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		494FE4C71A164D0A007B4CC1 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
@@ -514,7 +517,6 @@
 		49609D991A1625ED0096ACC3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		49609D9B1A1625ED0096ACC3 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		49609D9C1A1625ED0096ACC3 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		49609D9F1A1625ED0096ACC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49609DA11A1625ED0096ACC3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		49609DA41A1625ED0096ACC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		49609DAA1A1625ED0096ACC3 /* iPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iPhoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -556,6 +558,7 @@
 		493BA9F71A17D861007AA487 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				493BAC1F1A1819FE007AA487 /* ino3.wav */,
 				493BA9F81A17D885007AA487 /* polar_bear_help_full_29x29.png */,
 				493BA9F91A17D885007AA487 /* polar_bear_help_full_40x40.png */,
 				493BA9FA1A17D885007AA487 /* polar_bear_help_full_58x58.png */,
@@ -1486,7 +1489,7 @@
 				494FE4C11A162F8A007B4CC1 /* SettingsViewController.h */,
 				494FE4C21A162F8A007B4CC1 /* SettingsViewController.m */,
 				49609DA31A1625ED0096ACC3 /* LaunchScreen.xib */,
-				49609D9E1A1625ED0096ACC3 /* Main.storyboard */,
+				493BAC211A181F6F007AA487 /* Main.storyboard */,
 				49609DA11A1625ED0096ACC3 /* Images.xcassets */,
 				493BA9F71A17D861007AA487 /* Ressources */,
 				49609D941A1625ED0096ACC3 /* Supporting Files */,
@@ -1610,11 +1613,12 @@
 				493BAA061A17D885007AA487 /* polar_bear_help_full_80x80.png in Resources */,
 				493BAA0A1A17D885007AA487 /* polar_bear_help_full_180x180.png in Resources */,
 				493BAA081A17D885007AA487 /* polar_bear_help_full_120x120.png in Resources */,
+				493BAC201A1819FE007AA487 /* ino3.wav in Resources */,
 				493BABFB1A17E122007AA487 /* README.txt in Resources */,
+				493BAC231A181F6F007AA487 /* Main.storyboard in Resources */,
 				493BAB831A17E122007AA487 /* copying.txt in Resources */,
 				493BAA091A17D885007AA487 /* polar_bear_help_full_152x152.png in Resources */,
 				493BAC001A17E122007AA487 /* build-libidn.sh in Resources */,
-				49609DA01A1625ED0096ACC3 /* Main.storyboard in Resources */,
 				493BAA041A17D885007AA487 /* polar_bear_help_full_58x58.png in Resources */,
 				49609DA51A1625ED0096ACC3 /* LaunchScreen.xib in Resources */,
 				493BAA0B1A17D885007AA487 /* polar_bear_help_full.png in Resources */,
@@ -1802,10 +1806,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		49609D9E1A1625ED0096ACC3 /* Main.storyboard */ = {
+		493BAC211A181F6F007AA487 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				49609D9F1A1625ED0096ACC3 /* Base */,
+				493BAC221A181F6F007AA487 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

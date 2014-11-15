@@ -56,6 +56,7 @@
                                 <segue destination="xiD-cW-vdX" kind="show" id="Yes-Ag-nSl"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="n9N-n8-fFc"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -159,7 +160,7 @@
         <!--CallViewController-->
         <scene sceneID="UP0-VC-cCs">
             <objects>
-                <viewController id="Nw4-a0-5Cw" userLabel="CallViewController" customClass="CallViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="callViewController" id="Nw4-a0-5Cw" userLabel="CallViewController" customClass="CallViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tiE-Ih-3yY"/>
                         <viewControllerLayoutGuide type="bottom" id="CZD-N7-LIF"/>
@@ -167,11 +168,55 @@
                     <view key="view" contentMode="scaleToFill" id="jGl-IA-14P">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="polar_bear_help_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="PCP-9I-UXe">
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="c4Q-4G-0d2"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="r8c-04-unM"/>
+                                    <constraint firstAttribute="height" constant="200" id="ure-aq-ET7"/>
+                                    <constraint firstAttribute="width" constant="200" id="xn6-pt-0gr"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rf-7B-7xd" userLabel="accept">
+                                <rect key="frame" x="200" y="433" width="66" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Accept">
+                                    <color key="titleColor" red="0.02595118959" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="accept:" destination="Nw4-a0-5Cw" eventType="touchUpInside" id="Ljx-3O-8ym"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFt-e6-J61" userLabel="CallSupporter">
+                                <rect key="frame" x="179" y="28" width="243" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5D-Xj-ihI" userLabel="decline">
+                                <rect key="frame" x="334" y="433" width="66" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Decline">
+                                    <color key="titleColor" red="1" green="0.023573720190000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="decline:" destination="Nw4-a0-5Cw" eventType="touchUpInside" id="wsL-sH-DCE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.84120417869999997" green="0.89055912329999998" blue="0.9124490489" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="EFt-e6-J61" firstAttribute="top" secondItem="tiE-Ih-3yY" secondAttribute="bottom" constant="8" id="6Kr-14-8k3"/>
+                            <constraint firstAttribute="centerX" secondItem="PCP-9I-UXe" secondAttribute="centerX" id="COk-k9-h2E"/>
+                            <constraint firstItem="l5D-Xj-ihI" firstAttribute="top" secondItem="PCP-9I-UXe" secondAttribute="bottom" constant="33" id="Ok0-iF-fzY"/>
+                            <constraint firstAttribute="centerX" secondItem="EFt-e6-J61" secondAttribute="centerX" id="YAG-uX-mcD"/>
+                            <constraint firstAttribute="centerY" secondItem="PCP-9I-UXe" secondAttribute="centerY" id="al9-0s-qfT"/>
+                            <constraint firstItem="4rf-7B-7xd" firstAttribute="top" secondItem="PCP-9I-UXe" secondAttribute="bottom" constant="33" id="gxe-7c-c8c"/>
+                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="delegate" destination="5SC-7D-3Cp" id="FN4-1A-Zxo"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLD-ZJ-bBn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="5SC-7D-3Cp" customClass="AppDelegate">
@@ -180,7 +225,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="937" y="1622"/>
+            <point key="canvasLocation" x="937" y="1614"/>
         </scene>
         <!--ChatViewController-->
         <scene sceneID="CBV-cE-zPR">
@@ -193,8 +238,43 @@
                     <view key="view" contentMode="scaleToFill" id="gKr-iB-GB6">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lY6-5n-xtl">
+                                <rect key="frame" x="0.0" y="570" width="487" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6I-j5-zK2">
+                                <rect key="frame" x="495" y="570" width="105" height="30"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendMessage:" destination="2zi-Tm-3vk" eventType="touchUpInside" id="Xa4-Oa-fR1"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oYG-JY-791">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="471"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Mvs-01-rGY">
+                        <barButtonItem key="rightBarButtonItem" title="End Chat" id="2Ml-lG-Mi7">
+                            <connections>
+                                <action selector="endChat:" destination="2zi-Tm-3vk" id="Pee-Sn-CfS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="chatScrollView" destination="oYG-JY-791" id="54b-c0-IK4"/>
+                        <outlet property="chatTextView" destination="oYG-JY-791" id="hd1-IO-Ujq"/>
+                        <outlet property="message" destination="lY6-5n-xtl" id="KMQ-Rm-1sY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bqJ-ma-dtP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="apK-E4-AuZ" customClass="AppDelegate">
@@ -203,7 +283,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="1700" y="1622"/>
+            <point key="canvasLocation" x="1692" y="1614"/>
         </scene>
     </scenes>
     <resources>

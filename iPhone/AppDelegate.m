@@ -639,9 +639,19 @@ static AppDelegate *sParent;
             //[[UIApplication sharedApplication]beginReceivingRemoteControlEvents];
             
             [self.avSound play];
+
             
-            [self.navigationController presentViewController:self.callViewController animated:YES completion:NULL];
             
+            //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            //UIViewController *callViewController = [storyboard instantiateViewControllerWithIdentifier:@"callViewController"];
+            
+            //[self.navigationController presentViewController:self.callViewController animated:YES completion:NULL];
+            
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UIViewController *chatViewController = [storyboard instantiateViewControllerWithIdentifier:@"callViewController"];
+            
+            [self.navigationController pushViewController:chatViewController animated:YES];
             
             return;
             
