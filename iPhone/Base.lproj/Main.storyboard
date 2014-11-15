@@ -36,7 +36,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="needHelpChat:" destination="yJk-6R-i8z" eventType="touchUpInside" id="c0t-VN-pQp"/>
+                                    <action selector="needHelp:" destination="yJk-6R-i8z" eventType="touchUpInside" id="7yC-z3-s2U"/>
                                 </connections>
                             </button>
                         </subviews>

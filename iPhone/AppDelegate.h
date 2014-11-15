@@ -76,7 +76,7 @@
 - (void)sendDecline;
 - (void)sendAccept;
 
-- (IBAction)needHelpChat:(id)sender;
+- (IBAction)needHelp:(id)sender;
 
 @end
 

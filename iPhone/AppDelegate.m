@@ -1,15 +1,9 @@
-//
-//  AppDelegate.m
-//  iPhone
-//
-//  Created by Marc Landolt jun. on 14.11.14.
-//  Copyright (c) 2014 Marc Landolt jun. All rights reserved.
-//
 
 #import "AppDelegate.h"
-#import "Config.h"
-#import "ChatViewController.h"
+#import "RootViewController.h"
 #import "SettingsViewController.h"
+#import "ChatViewController.h"
+#import "CallViewController.h"
 
 #import "GCDAsyncSocket.h"
 #import "XMPP.h"
@@ -26,17 +20,25 @@
 #import "DDTTYLogger.h"
 
 
+#import "Config.h"
 
-@interface AppDelegate ()
+#import <CFNetwork/CFNetwork.h>
 
-@end
+// Log levels: off, error, warn, info, verbose
+#if DEBUG
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+#else
+static const int ddLogLevel = LOG_LEVEL_INFO;
+#endif
+
+static AppDelegate *sParent;
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @implementation AppDelegate
-
-@synthesize navigationController;
-@synthesize settingsViewController;
-@synthesize chatViewController;
-@synthesize callViewController;
 
 @synthesize xmppStream;
 @synthesize xmppReconnect;
@@ -46,6 +48,12 @@
 @synthesize xmppvCardAvatarModule;
 @synthesize xmppCapabilities;
 @synthesize xmppCapabilitiesStorage;
+
+@synthesize window;
+@synthesize navigationController;
+@synthesize settingsViewController;
+@synthesize chatViewController;
+//@synthesize loginButton;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -78,6 +86,24 @@
 {
     [self teardownStream];
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark Core Data
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (NSManagedObjectContext *)managedObjectContext_roster
+{
+    return [xmppRosterStorage mainThreadManagedObjectContext];
+}
+
+- (NSManagedObjectContext *)managedObjectContext_capabilities
+{
+    return [xmppCapabilitiesStorage mainThreadManagedObjectContext];
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark Private
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (void)setupStream
 {
@@ -224,6 +250,17 @@
     xmppCapabilitiesStorage = nil;
 }
 
+// It's easy to create XML elments to send and to read received XML elements.
+// You have the entire NSXMLElement and NSXMLNode API's.
+//
+// In addition to this, the NSXMLElement+XMPP category provides some very handy methods for working with XMPP.
+//
+// On the iPhone, Apple chose not to include the full NSXML suite.
+// No problem - we use the KissXML library as a drop in replacement.
+//
+// For more information on working with XML elements, see the Wiki article:
+// https://github.com/robbiehanson/XMPPFramework/wiki/WorkingWithElements
+
 - (void)goOnline
 {
     XMPPPresence *presence = [XMPPPresence presence]; // type="available" is implicit
@@ -257,6 +294,10 @@
     
     [[self xmppStream] sendElement:presence];
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark Connect/disconnect
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (BOOL)connect
 {
@@ -317,7 +358,7 @@
                                                   otherButtonTitles:nil];
         [alertView show];
         
-        //DDLogError(@"Error connecting: %@", error);
+        DDLogError(@"Error connecting: %@", error);
         
         return NO;
     }
@@ -333,6 +374,10 @@
     [xmppStream disconnect];
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark UIApplicationDelegate
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store
@@ -342,18 +387,18 @@
     // If your application supports background execution,
     // called instead of applicationWillTerminate: when the user quits.
     
-    //DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+    DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
     
 #if TARGET_IPHONE_SIMULATOR
-    //DDLogError(@"The iPhone simulator does not process background network traffic. "
-     //          @"Inbound traffic is queued until the keepAliveTimeout:handler: fires.");
+    DDLogError(@"The iPhone simulator does not process background network traffic. "
+               @"Inbound traffic is queued until the keepAliveTimeout:handler: fires.");
 #endif
     
     if ([application respondsToSelector:@selector(setKeepAliveTimeout:handler:)])
     {
         [application setKeepAliveTimeout:600 handler:^{
             
-            //DDLogVerbose(@"KeepAliveHandler");
+            DDLogVerbose(@"KeepAliveHandler");
             
             // Do other keep alive stuff here.
         }];
@@ -362,34 +407,28 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    //DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+    DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    //DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+    DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
     
     [self teardownStream];
 }
 
-- (NSManagedObjectContext *)managedObjectContext_roster
-{
-    return [xmppRosterStorage mainThreadManagedObjectContext];
-}
-
-- (NSManagedObjectContext *)managedObjectContext_capabilities
-{
-    return [xmppCapabilitiesStorage mainThreadManagedObjectContext];
-}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark XMPPStream Delegate
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (void)xmppStream:(XMPPStream *)sender socketDidConnect:(GCDAsyncSocket *)socket
 {
-    //DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+    DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
 }
 
 - (void)xmppStream:(XMPPStream *)sender willSecureWithSettings:(NSMutableDictionary *)settings
 {
-    //DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+    DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
     
     NSString *expectedCertName = [xmppStream.myJID domain];
     if (expectedCertName)
@@ -403,9 +442,107 @@
     }
 }
 
+/**
+ * Allows a delegate to hook into the TLS handshake and manually validate the peer it's connecting to.
+ *
+ * This is only called if the stream is secured with settings that include:
+ * - GCDAsyncSocketManuallyEvaluateTrust == YES
+ * That is, if a delegate implements xmppStream:willSecureWithSettings:, and plugs in that key/value pair.
+ *
+ * Thus this delegate method is forwarding the TLS evaluation callback from the underlying GCDAsyncSocket.
+ *
+ * Typically the delegate will use SecTrustEvaluate (and related functions) to properly validate the peer.
+ *
+ * Note from Apple's documentation:
+ *   Because [SecTrustEvaluate] might look on the network for certificates in the certificate chain,
+ *   [it] might block while attempting network access. You should never call it from your main thread;
+ *   call it only from within a function running on a dispatch queue or on a separate thread.
+ *
+ * This is why this method uses a completionHandler block rather than a normal return value.
+ * The idea is that you should be performing SecTrustEvaluate on a background thread.
+ * The completionHandler block is thread-safe, and may be invoked from a background queue/thread.
+ * It is safe to invoke the completionHandler block even if the socket has been closed.
+ *
+ * Keep in mind that you can do all kinds of cool stuff here.
+ * For example:
+ *
+ * If your development server is using a self-signed certificate,
+ * then you could embed info about the self-signed cert within your app, and use this callback to ensure that
+ * you're actually connecting to the expected dev server.
+ *
+ * Also, you could present certificates that don't pass SecTrustEvaluate to the client.
+ * That is, if SecTrustEvaluate comes back with problems, you could invoke the completionHandler with NO,
+ * and then ask the client if the cert can be trusted. This is similar to how most browsers act.
+ *
+ * Generally, only one delegate should implement this method.
+ * However, if multiple delegates implement this method, then the first to invoke the completionHandler "wins".
+ * And subsequent invocations of the completionHandler are ignored.
+ **/
+- (void)xmppStream:(XMPPStream *)sender didReceiveTrust:(SecTrustRef)trust
+ completionHandler:(void (^)(BOOL shouldTrustPeer))completionHandler
+{
+    DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+    
+    // The delegate method should likely have code similar to this,
+    // but will presumably perform some extra security code stuff.
+    // For example, allowing a specific self-signed certificate that is known to the app.
+    
+    dispatch_queue_t bgQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(bgQueue, ^{
+        
+        SecTrustResultType result = kSecTrustResultDeny;
+        OSStatus status = SecTrustEvaluate(trust, &result);
+        
+        if (status == noErr && (result == kSecTrustResultProceed || result == kSecTrustResultUnspecified)) {
+            completionHandler(YES);
+        }
+        else {
+            completionHandler(NO);
+        }
+    });
+}
+
+- (void)xmppStreamDidSecure:(XMPPStream *)sender
+{
+    DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+}
+
+- (void)xmppStreamDidConnect:(XMPPStream *)sender
+{
+    DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+    
+    isXmppConnected = YES;
+    
+    NSError *error = nil;
+    
+    if (![[self xmppStream] authenticateWithPassword:password error:&error])
+    {
+        DDLogError(@"Error authenticating: %@", error);
+    }
+}
+
+- (void)xmppStreamDidAuthenticate:(XMPPStream *)sender
+{
+    DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+    
+    [self goOnline];
+}
+
+- (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(NSXMLElement *)error
+{
+    DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+}
+
+- (BOOL)xmppStream:(XMPPStream *)sender didReceiveIQ:(XMPPIQ *)iq
+{
+    DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+    
+    return NO;
+}
+
 - (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message
 {
-    //DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+    DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
     
     // A simple example of inbound message handling.
     
@@ -521,6 +658,73 @@
     }
 }
 
+- (void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence
+{
+    DDLogVerbose(@"%@: %@ - %@", THIS_FILE, THIS_METHOD, [presence fromStr]);
+}
+
+- (void)xmppStream:(XMPPStream *)sender didReceiveError:(id)error
+{
+    DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+}
+
+- (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error
+{
+    DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+    
+    if (!isXmppConnected)
+    {
+        DDLogError(@"Unable to connect to server. Check xmppStream.hostName");
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark XMPPRosterDelegate
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)xmppRoster:(XMPPRoster *)sender didReceiveBuddyRequest:(XMPPPresence *)presence
+{
+    DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+    
+    XMPPUserCoreDataStorageObject *user = [xmppRosterStorage userForJID:[presence from]
+                                                             xmppStream:xmppStream
+                                                   managedObjectContext:[self managedObjectContext_roster]];
+    
+    NSString *displayName = [user displayName];
+    NSString *jidStrBare = [presence fromStr];
+    NSString *body = nil;
+    
+    if (![displayName isEqualToString:jidStrBare])
+    {
+        body = [NSString stringWithFormat:@"Buddy request from %@ <%@>", displayName, jidStrBare];
+    }
+    else
+    {
+        body = [NSString stringWithFormat:@"Buddy request from %@", displayName];
+    }
+    
+    
+    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:displayName
+                                                            message:body
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Not implemented"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+    else
+    {
+        // We are not active, so use a local notification instead
+        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+        localNotification.alertAction = @"Not implemented";
+        localNotification.alertBody = body;
+        
+        [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+    }
+    
+}
+
 - (void)sendChatMessage:(NSString*) text
 {
     NSXMLElement *body =[NSXMLElement elementWithName:@"body"];
@@ -610,22 +814,24 @@
     [[self xmppStream] sendElement:message];
     
     [navigationController presentViewController:chatViewController animated:YES completion:NULL];
+    
 }
 
 
-- (IBAction)needHelpChat:(id)sender {
+- (IBAction)needHelp:(id)sender {
     [Config setIsHelpSeeker:true];
     [self connect];
     [self sendLoginRequest];
+    
+    
+}
+
+- (IBAction)temp:(id)sender {
+    [navigationController presentViewController:chatViewController animated:YES completion:NULL];
+    
 }
 
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
 
 @end
+
