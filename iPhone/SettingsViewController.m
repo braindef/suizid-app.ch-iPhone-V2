@@ -1,9 +1,10 @@
 //
 //  SettingsViewController.m
-//  iPhone
+//  iPhoneXMPP
 //
-//  Created by Marc Landolt jun. on 14.11.14.
-//  Copyright (c) 2014 Marc Landolt jun. All rights reserved.
+//  Created by Eric Chamberlain on 3/18/11.
+//  Copyright 2011 RF.com. All rights reserved.
+//
 //
 
 #import "AppDelegate.h"
@@ -11,17 +12,90 @@
 #import "ChatViewController.h"
 
 
+NSString *const kXMPPmyJID = @"kXMPPmyJID";
+NSString *const kXMPPmyPassword = @"kXMPPmyPassword";
+
 
 @implementation SettingsViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+@synthesize jidField;
+@synthesize passwordField;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark Init/dealloc methods
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)awakeFromNib {
+    self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark View lifecycle
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    jidField.text = [[NSUserDefaults standardUserDefaults] stringForKey:kXMPPmyJID];
+    passwordField.text = [[NSUserDefaults standardUserDefaults] stringForKey:kXMPPmyPassword];
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark Private
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setField:(UITextField *)field forKey:(NSString *)key
+{
+    if (field.text != nil)
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:field.text forKey:key];
+    } else {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark Actions
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (IBAction)done:(id)sender
+{
+    [self setField:jidField forKey:kXMPPmyJID];
+    [self setField:passwordField forKey:kXMPPmyPassword];
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *chatViewController = [storyboard instantiateViewControllerWithIdentifier:@"rootViewController"];
+    
+    [self.navigationController pushViewController:chatViewController animated:YES];
+    //[self presentViewController:chatViewControler animated:YES completion:nil];
+    
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message"
-                                                        message:@"View Did Load"
+                                                        message:@"Button"
                                                        delegate:nil
                                               cancelButtonTitle:@"Ok"
                                               otherButtonTitles:nil];
     [alertView show];
+    
+}
+
+- (IBAction)hideKeyboard:(id)sender {
+    [sender resignFirstResponder];
+    [self done:sender];
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark Getter/setter methods
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
@@ -50,18 +124,7 @@
     //AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
     //ChatViewController *chatViewController = appDelegate.chatViewControler;
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *chatViewController = [storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
-    
-    [self.navigationController pushViewController:chatViewController animated:YES];
-    //[self presentViewController:chatViewControler animated:YES completion:nil];
-    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message"
-                                                        message:@"Button"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil];
-    [alertView show];
+
 
 }
 

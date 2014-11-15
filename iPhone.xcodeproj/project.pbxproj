@@ -159,6 +159,16 @@
 		493BAC041A17E270007AA487 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAC031A17E270007AA487 /* libxml2.dylib */; };
 		493BAC061A17E284007AA487 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAC051A17E284007AA487 /* libresolv.dylib */; };
 		493BAC091A17E313007AA487 /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 493BAC081A17E313007AA487 /* CallViewController.m */; };
+		493BAC0B1A17F459007AA487 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAC0A1A17F459007AA487 /* AudioToolbox.framework */; };
+		493BAC0D1A17F460007AA487 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAC0C1A17F460007AA487 /* AVFoundation.framework */; };
+		493BAC0F1A17F471007AA487 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAC0E1A17F471007AA487 /* CoreData.framework */; };
+		493BAC111A17F4EE007AA487 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAC101A17F4EE007AA487 /* UIKit.framework */; };
+		493BAC131A17F527007AA487 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAC121A17F527007AA487 /* Foundation.framework */; };
+		493BAC151A17F543007AA487 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAC141A17F543007AA487 /* CoreGraphics.framework */; };
+		493BAC171A17F55B007AA487 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAC161A17F55B007AA487 /* CoreLocation.framework */; };
+		493BAC191A17F570007AA487 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAC181A17F570007AA487 /* CFNetwork.framework */; };
+		493BAC1B1A17F584007AA487 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAC1A1A17F584007AA487 /* SystemConfiguration.framework */; };
+		493BAC1D1A17F597007AA487 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493BAC1C1A17F597007AA487 /* Security.framework */; };
 		494FE4C31A162F8A007B4CC1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494FE4C21A162F8A007B4CC1 /* SettingsViewController.m */; };
 		494FE4C91A164D0A007B4CC1 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494FE4C81A164D0A007B4CC1 /* ChatViewController.m */; };
 		49609D971A1625ED0096ACC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49609D961A1625ED0096ACC3 /* main.m */; };
@@ -483,6 +493,16 @@
 		493BAC051A17E284007AA487 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
 		493BAC071A17E313007AA487 /* CallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallViewController.h; sourceTree = "<group>"; };
 		493BAC081A17E313007AA487 /* CallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallViewController.m; sourceTree = "<group>"; };
+		493BAC0A1A17F459007AA487 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		493BAC0C1A17F460007AA487 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		493BAC0E1A17F471007AA487 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		493BAC101A17F4EE007AA487 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		493BAC121A17F527007AA487 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		493BAC141A17F543007AA487 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		493BAC161A17F55B007AA487 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		493BAC181A17F570007AA487 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		493BAC1A1A17F584007AA487 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		493BAC1C1A17F597007AA487 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		494FE4C11A162F8A007B4CC1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		494FE4C21A162F8A007B4CC1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		494FE4C71A164D0A007B4CC1 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
@@ -507,6 +527,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493BAC1D1A17F597007AA487 /* Security.framework in Frameworks */,
+				493BAC1B1A17F584007AA487 /* SystemConfiguration.framework in Frameworks */,
+				493BAC191A17F570007AA487 /* CFNetwork.framework in Frameworks */,
+				493BAC171A17F55B007AA487 /* CoreLocation.framework in Frameworks */,
+				493BAC0F1A17F471007AA487 /* CoreData.framework in Frameworks */,
+				493BAC151A17F543007AA487 /* CoreGraphics.framework in Frameworks */,
+				493BAC131A17F527007AA487 /* Foundation.framework in Frameworks */,
+				493BAC111A17F4EE007AA487 /* UIKit.framework in Frameworks */,
+				493BAC0D1A17F460007AA487 /* AVFoundation.framework in Frameworks */,
+				493BAC0B1A17F459007AA487 /* AudioToolbox.framework in Frameworks */,
 				493BAC061A17E284007AA487 /* libresolv.dylib in Frameworks */,
 				493BAC041A17E270007AA487 /* libxml2.dylib in Frameworks */,
 				493BAC011A17E122007AA487 /* libidn.a in Frameworks */,
@@ -1401,11 +1431,29 @@
 			path = libidn;
 			sourceTree = "<group>";
 		};
+		493BAC1E1A180880007AA487 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				493BAC1C1A17F597007AA487 /* Security.framework */,
+				493BAC1A1A17F584007AA487 /* SystemConfiguration.framework */,
+				493BAC181A17F570007AA487 /* CFNetwork.framework */,
+				493BAC161A17F55B007AA487 /* CoreLocation.framework */,
+				493BAC141A17F543007AA487 /* CoreGraphics.framework */,
+				493BAC121A17F527007AA487 /* Foundation.framework */,
+				493BAC101A17F4EE007AA487 /* UIKit.framework */,
+				493BAC0E1A17F471007AA487 /* CoreData.framework */,
+				493BAC0C1A17F460007AA487 /* AVFoundation.framework */,
+				493BAC0A1A17F459007AA487 /* AudioToolbox.framework */,
+				493BAC051A17E284007AA487 /* libresolv.dylib */,
+				493BAC031A17E270007AA487 /* libxml2.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		49609D881A1625EC0096ACC3 = {
 			isa = PBXGroup;
 			children = (
-				493BAC051A17E284007AA487 /* libresolv.dylib */,
-				493BAC031A17E270007AA487 /* libxml2.dylib */,
+				493BAC1E1A180880007AA487 /* Frameworks */,
 				49609D931A1625ED0096ACC3 /* suizid-app.ch */,
 				49609DAD1A1625ED0096ACC3 /* iPhoneTests */,
 				49609D921A1625ED0096ACC3 /* Products */,

@@ -1,14 +1,30 @@
 //
 //  SettingsViewController.h
-//  iPhone
+//  iPhoneXMPP
 //
-//  Created by Marc Landolt jun. on 14.11.14.
-//  Copyright (c) 2014 Marc Landolt jun. All rights reserved.
+//  Created by Eric Chamberlain on 3/18/11.
+//  Copyright 2011 RF.com. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
+
+extern NSString *const kXMPPmyJID;
+extern NSString *const kXMPPmyPassword;
+
+
 @interface SettingsViewController : UIViewController
+{
+    UITextField *jidField;
+    UITextField *passwordField;
+}
+
+@property (nonatomic,strong) IBOutlet UITextField *jidField;
+@property (nonatomic,strong) IBOutlet UITextField *passwordField;
+@property (nonatomic,strong) IBOutlet UITextField *serverBotJid;
+
+- (IBAction)done:(id)sender;
+- (IBAction)hideKeyboard:(id)sender;
 
 - (IBAction)openChat:(id)sender;
 

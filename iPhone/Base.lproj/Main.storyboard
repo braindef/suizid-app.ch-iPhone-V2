@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6V0-V7-4oQ">
     <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--RootViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="RootViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rootViewController" id="BYZ-38-t0r" userLabel="RootViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -34,6 +35,9 @@
                                 <state key="normal" title="I need help">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="needHelpChat:" destination="yJk-6R-i8z" eventType="touchUpInside" id="c0t-VN-pQp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.84120417869999997" green="0.89055912329999998" blue="0.9124490489" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,24 +97,64 @@
                     <view key="view" contentMode="scaleToFill" id="6rP-yi-XHV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="supporter@suizid-app.ch" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CQf-ye-Far">
+                                <rect key="frame" x="126" y="72" width="183" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRd-9A-4mQ">
+                                <rect key="frame" x="16" y="76" width="102" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGE-7W-mtX">
+                                <rect key="frame" x="16" y="121" width="102" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="server@suizid-app.ch" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eil-Od-QX4">
+                                <rect key="frame" x="149" y="164" width="160" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Server Bot JID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NO2-Kq-yzl">
+                                <rect key="frame" x="16" y="168" width="125" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rrS-5I-5hA">
+                                <rect key="frame" x="126" y="117" width="183" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="MNE-jR-OiV">
-                        <barButtonItem key="rightBarButtonItem" title="Chat" id="EVf-Vi-VfF">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="EVf-Vi-VfF">
                             <connections>
-                                <action selector="openChat:" destination="xiD-cW-vdX" id="wDe-dV-nrI"/>
+                                <action selector="done:" destination="xiD-cW-vdX" id="p3z-Hs-yjc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="jidField" destination="CQf-ye-Far" id="JdN-YV-0hH"/>
+                        <outlet property="passwordField" destination="rrS-5I-5hA" id="sgo-6l-vjJ"/>
+                        <outlet property="serverBotJid" destination="eil-Od-QX4" id="CGe-qX-3jc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ghj-JJ-Atr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="Glf-YX-WPE" customClass="AppDelegate">
                     <connections>
-                        <outlet property="settingsViewControler" destination="xiD-cW-vdX" id="sWY-bk-80m"/>
+                        <outlet property="settingsViewController" destination="xiD-cW-vdX" id="XCI-uU-2GI"/>
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="1700" y="793"/>
+            <point key="canvasLocation" x="1738" y="793"/>
         </scene>
         <!--CallViewController-->
         <scene sceneID="UP0-VC-cCs">
@@ -132,7 +176,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLD-ZJ-bBn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="5SC-7D-3Cp" customClass="AppDelegate">
                     <connections>
-                        <outlet property="callViewControler" destination="Nw4-a0-5Cw" id="Nxi-58-5Ii"/>
+                        <outlet property="callViewController" destination="Nw4-a0-5Cw" id="ZdV-2D-2AB"/>
                     </connections>
                 </customObject>
             </objects>
@@ -155,7 +199,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bqJ-ma-dtP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="apK-E4-AuZ" customClass="AppDelegate">
                     <connections>
-                        <outlet property="chatViewControler" destination="2zi-Tm-3vk" id="K6d-JO-C9J"/>
+                        <outlet property="chatViewController" destination="2zi-Tm-3vk" id="Fcn-eo-g8Z"/>
                     </connections>
                 </customObject>
             </objects>
