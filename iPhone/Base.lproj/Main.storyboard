@@ -24,14 +24,14 @@
                                     <constraint firstAttribute="height" constant="200" id="jQe-Qa-Am1"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mQ-T9-fBe" userLabel="CallSupporter">
-                                <rect key="frame" x="179" y="72" width="243" height="46"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mQ-T9-fBe" userLabel="CallSupporter">
+                                <rect key="frame" x="215" y="72" width="170" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2c-KE-4ac" userLabel="Ineedhelp">
-                                <rect key="frame" x="214" y="550" width="172" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2c-KE-4ac" userLabel="Ineedhelp">
+                                <rect key="frame" x="262" y="550" width="76" height="30"/>
                                 <state key="normal" title="I need help">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -56,7 +56,11 @@
                                 <segue destination="xiD-cW-vdX" kind="show" id="Yes-Ag-nSl"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="n9N-n8-fFc"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="n9N-n8-fFc">
+                            <connections>
+                                <segue destination="Nw4-a0-5Cw" kind="show" id="9wn-UM-cP1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -103,6 +107,9 @@
                                 <rect key="frame" x="126" y="72" width="183" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="hideKeyboard:" destination="xiD-cW-vdX" eventType="editingDidEndOnExit" id="97F-Ym-Mm5"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRd-9A-4mQ">
                                 <rect key="frame" x="16" y="76" width="102" height="21"/>
@@ -120,6 +127,9 @@
                                 <rect key="frame" x="149" y="164" width="160" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="hideKeyboard:" destination="xiD-cW-vdX" eventType="editingDidEndOnExit" id="pae-4c-Ltg"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Server Bot JID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NO2-Kq-yzl">
                                 <rect key="frame" x="16" y="168" width="125" height="21"/>
@@ -131,6 +141,9 @@
                                 <rect key="frame" x="126" y="117" width="183" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="hideKeyboard:" destination="xiD-cW-vdX" eventType="editingDidEndOnExit" id="fR1-88-DPg"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -172,56 +185,71 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="polar_bear_help_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="PCP-9I-UXe">
                                 <rect key="frame" x="200" y="200" width="200" height="200"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="AQq-Ei-F2n"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="MPH-Ey-EPo"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="c4Q-4G-0d2"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="r8c-04-unM"/>
                                     <constraint firstAttribute="height" constant="200" id="ure-aq-ET7"/>
                                     <constraint firstAttribute="width" constant="200" id="xn6-pt-0gr"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rf-7B-7xd" userLabel="accept">
-                                <rect key="frame" x="200" y="433" width="66" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rf-7B-7xd" userLabel="accept">
+                                <rect key="frame" x="192" y="433" width="66" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="DD5-vJ-uka"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Accept">
                                     <color key="titleColor" red="0.02595118959" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="accept:" destination="Nw4-a0-5Cw" eventType="touchUpInside" id="Ljx-3O-8ym"/>
+                                    <action selector="accept:" destination="Nw4-a0-5Cw" eventType="touchUpInside" id="Keu-in-Hpk"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFt-e6-J61" userLabel="CallSupporter">
-                                <rect key="frame" x="179" y="28" width="243" height="46"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nb0-fh-Zvf">
+                                <rect key="frame" x="298" y="440" width="5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFt-e6-J61" userLabel="CallSupporter">
+                                <rect key="frame" x="215" y="72" width="170" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5D-Xj-ihI" userLabel="decline">
-                                <rect key="frame" x="334" y="433" width="66" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5D-Xj-ihI" userLabel="decline">
+                                <rect key="frame" x="343" y="433" width="66" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Decline">
                                     <color key="titleColor" red="1" green="0.023573720190000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="decline:" destination="Nw4-a0-5Cw" eventType="touchUpInside" id="wsL-sH-DCE"/>
+                                    <action selector="decline:" destination="Nw4-a0-5Cw" eventType="touchUpInside" id="AHl-MQ-9ux"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.84120417869999997" green="0.89055912329999998" blue="0.9124490489" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="EFt-e6-J61" firstAttribute="top" secondItem="tiE-Ih-3yY" secondAttribute="bottom" constant="8" id="6Kr-14-8k3"/>
-                            <constraint firstAttribute="centerX" secondItem="PCP-9I-UXe" secondAttribute="centerX" id="COk-k9-h2E"/>
-                            <constraint firstItem="l5D-Xj-ihI" firstAttribute="top" secondItem="PCP-9I-UXe" secondAttribute="bottom" constant="33" id="Ok0-iF-fzY"/>
-                            <constraint firstAttribute="centerX" secondItem="EFt-e6-J61" secondAttribute="centerX" id="YAG-uX-mcD"/>
-                            <constraint firstAttribute="centerY" secondItem="PCP-9I-UXe" secondAttribute="centerY" id="al9-0s-qfT"/>
-                            <constraint firstItem="4rf-7B-7xd" firstAttribute="top" secondItem="PCP-9I-UXe" secondAttribute="bottom" constant="33" id="gxe-7c-c8c"/>
+                            <constraint firstItem="Nb0-fh-Zvf" firstAttribute="top" secondItem="PCP-9I-UXe" secondAttribute="bottom" constant="40" id="0rD-GA-vL6"/>
+                            <constraint firstAttribute="centerY" secondItem="PCP-9I-UXe" secondAttribute="centerY" id="6O8-cG-P7A"/>
+                            <constraint firstItem="EFt-e6-J61" firstAttribute="top" secondItem="tiE-Ih-3yY" secondAttribute="bottom" constant="8" id="6UX-oU-bia"/>
+                            <constraint firstAttribute="centerX" secondItem="PCP-9I-UXe" secondAttribute="centerX" id="H1b-xL-SfA"/>
+                            <constraint firstItem="4rf-7B-7xd" firstAttribute="top" secondItem="PCP-9I-UXe" secondAttribute="bottom" constant="33" id="PM4-47-mGU"/>
+                            <constraint firstAttribute="centerX" secondItem="EFt-e6-J61" secondAttribute="centerX" id="Qhi-4m-abI"/>
+                            <constraint firstItem="l5D-Xj-ihI" firstAttribute="top" secondItem="PCP-9I-UXe" secondAttribute="bottom" constant="33" id="a5Z-i2-7B5"/>
+                            <constraint firstItem="l5D-Xj-ihI" firstAttribute="leading" secondItem="Nb0-fh-Zvf" secondAttribute="trailing" constant="40" id="ceP-w5-jU3"/>
+                            <constraint firstAttribute="centerX" secondItem="Nb0-fh-Zvf" secondAttribute="centerX" id="pSO-Vt-Klt"/>
+                            <constraint firstItem="Nb0-fh-Zvf" firstAttribute="leading" secondItem="4rf-7B-7xd" secondAttribute="trailing" constant="40" id="tkk-G3-lud"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLD-ZJ-bBn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="5SC-7D-3Cp" customClass="AppDelegate">
                     <connections>
-                        <outlet property="callViewController" destination="Nw4-a0-5Cw" id="ZdV-2D-2AB"/>
+                        <outlet property="callViewController" destination="Nw4-a0-5Cw" id="XiB-qI-BT3"/>
                     </connections>
                 </customObject>
             </objects>
@@ -256,7 +284,6 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oYG-JY-791">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="471"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -271,7 +298,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="chatScrollView" destination="oYG-JY-791" id="54b-c0-IK4"/>
                         <outlet property="chatTextView" destination="oYG-JY-791" id="hd1-IO-Ujq"/>
                         <outlet property="message" destination="lY6-5n-xtl" id="KMQ-Rm-1sY"/>
                     </connections>

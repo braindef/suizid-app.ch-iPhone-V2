@@ -20,27 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    //working
-    //NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"ino" ofType:@"wav"]];
-    
-    //SystemSoundID mRing;
-    //AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &mRing);
-    //AudioServicesPlaySystemSound(mRing);
-    
-    //only working when not in background :(
-    //NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"ringtone" ofType:@"mp3"]];
-    //self.audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:nil] ;
-    //self.audioPlayer.numberOfLoops = 3;
-    
-    //[[AVAudioSession sharedInstance]setCategory:AVAudioSessionCategoryPlayback error: nil];
-    //[[AVAudioSession sharedInstance]setActive:YES error:nil];
-    //[[UIApplication sharedApplication]beginReceivingRemoteControlEvents];
-    
-    //[self.audioPlayer play];
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {

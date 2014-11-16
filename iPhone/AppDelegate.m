@@ -633,25 +633,12 @@ static AppDelegate *sParent;
             AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &mRing);
             AudioServicesPlaySystemSound(mRing);
             
-            //self.avSound =  [[AVAudioPlayer alloc]initWithContentsOfURL:url error:nil];
-            //[[AVAudioSession sharedInstance]setCategory:AVAudioSessionCategoryPlayback error:nil];
-            //[[AVAudioSession sharedInstance]setActive:YES error:nil];
-            //[[UIApplication sharedApplication]beginReceivingRemoteControlEvents];
-            
             [self.avSound play];
 
-            
-            
-            //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            //UIViewController *callViewController = [storyboard instantiateViewControllerWithIdentifier:@"callViewController"];
-            
-            //[self.navigationController presentViewController:self.callViewController animated:YES completion:NULL];
-            
-            
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UIViewController *chatViewController = [storyboard instantiateViewControllerWithIdentifier:@"callViewController"];
+            UIViewController *callViewController = [storyboard instantiateViewControllerWithIdentifier:@"callViewController"];
             
-            [self.navigationController pushViewController:chatViewController animated:YES];
+            [self.window.rootViewController presentViewController:callViewController animated:YES completion:nil];
             
             return;
             
@@ -823,7 +810,10 @@ static AppDelegate *sParent;
     
     [[self xmppStream] sendElement:message];
     
-    [navigationController presentViewController:chatViewController animated:YES completion:NULL];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *chatViewController = [storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
+    
+    [self.window.rootViewController presentViewController:chatViewController animated:YES completion:nil];
     
 }
 
@@ -833,11 +823,6 @@ static AppDelegate *sParent;
     [self connect];
     [self sendLoginRequest];
     
-    
-}
-
-- (IBAction)temp:(id)sender {
-    [navigationController presentViewController:chatViewController animated:YES completion:NULL];
     
 }
 
