@@ -281,38 +281,46 @@
                                     <action selector="sendMessage:" destination="2zi-Tm-3vk" eventType="touchUpInside" id="Xa4-Oa-fR1"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hallo" translatesAutoresizingMaskIntoConstraints="NO" id="oYG-JY-791">
-                                <rect key="frame" x="6" y="9" width="578" height="506"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pHW-Vx-NoG">
                                 <rect key="frame" x="16" y="540" width="450" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7T-vY-Kku">
+                                <rect key="frame" x="6" y="6" width="588" height="44"/>
+                                <items>
+                                    <navigationItem id="Mvs-01-rGY">
+                                        <barButtonItem key="rightBarButtonItem" title="End Chat" id="2Ml-lG-Mi7">
+                                            <connections>
+                                                <action selector="endChat:" destination="2zi-Tm-3vk" id="Pee-Sn-CfS"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hallo" translatesAutoresizingMaskIntoConstraints="NO" id="oYG-JY-791">
+                                <rect key="frame" x="6" y="50" width="578" height="465"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oYG-JY-791" firstAttribute="leading" secondItem="gKr-iB-GB6" secondAttribute="leadingMargin" constant="-10" id="1hi-el-fRk"/>
                             <constraint firstItem="pHW-Vx-NoG" firstAttribute="top" secondItem="oYG-JY-791" secondAttribute="bottom" constant="25" id="5X2-Pe-Hp8"/>
+                            <constraint firstItem="W7T-vY-Kku" firstAttribute="bottom" secondItem="oYG-JY-791" secondAttribute="top" id="6OD-lo-FcJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="W7T-vY-Kku" secondAttribute="trailing" constant="-10" id="6Zo-gB-jVY"/>
                             <constraint firstItem="c6I-j5-zK2" firstAttribute="top" secondItem="oYG-JY-791" secondAttribute="bottom" constant="25" id="7Fe-fN-BXl"/>
                             <constraint firstItem="c6I-j5-zK2" firstAttribute="leading" secondItem="pHW-Vx-NoG" secondAttribute="trailing" constant="32" id="7eL-5j-A6B"/>
                             <constraint firstItem="oYG-JY-791" firstAttribute="trailing" secondItem="gKr-iB-GB6" secondAttribute="trailingMargin" id="9Zf-Tb-7k3"/>
-                            <constraint firstItem="oYG-JY-791" firstAttribute="top" secondItem="3DU-Rf-fgp" secondAttribute="bottom" constant="-11" id="DMY-na-YaU"/>
+                            <constraint firstItem="oYG-JY-791" firstAttribute="top" secondItem="3DU-Rf-fgp" secondAttribute="bottom" constant="30" id="DMY-na-YaU"/>
                             <constraint firstItem="jUe-ei-ay9" firstAttribute="top" secondItem="pHW-Vx-NoG" secondAttribute="bottom" constant="30" id="MCX-CU-w0Z"/>
                             <constraint firstItem="pHW-Vx-NoG" firstAttribute="leading" secondItem="gKr-iB-GB6" secondAttribute="leadingMargin" id="MRr-Mw-14u"/>
                             <constraint firstAttribute="trailingMargin" secondItem="c6I-j5-zK2" secondAttribute="trailing" constant="6" id="oqc-HU-Cv8"/>
+                            <constraint firstItem="W7T-vY-Kku" firstAttribute="leading" secondItem="gKr-iB-GB6" secondAttribute="leadingMargin" constant="-10" id="yIV-Vv-y6c"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Mvs-01-rGY">
-                        <barButtonItem key="rightBarButtonItem" title="End Chat" id="2Ml-lG-Mi7">
-                            <connections>
-                                <action selector="endChat:" destination="2zi-Tm-3vk" id="Pee-Sn-CfS"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="chatTextView" destination="oYG-JY-791" id="hd1-IO-Ujq"/>
                         <outlet property="keyboardHight" destination="MCX-CU-w0Z" id="eVy-j4-TEG"/>
@@ -326,7 +334,69 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="1692" y="1617"/>
+            <point key="canvasLocation" x="1689" y="1614"/>
+        </scene>
+        <!--EvaluateViewController-->
+        <scene sceneID="4Fx-N0-7KD">
+            <objects>
+                <viewController storyboardIdentifier="evaluateViewController" id="X8H-Vj-bYR" userLabel="EvaluateViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dLo-Xg-OtA"/>
+                        <viewControllerLayoutGuide type="bottom" id="xey-ul-Jff"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ji0-cX-v3w">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cd0-6q-vWF" userLabel="Savedmylife">
+                                <rect key="frame" x="212" y="164" width="176" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Saved my life">
+                                    <color key="titleColor" red="0.02595118959" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="savedmylife:" destination="YY5-ia-XCo" eventType="touchUpInside" id="bZ9-jq-bfv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HsM-4V-f9k" userLabel="improovedmysituation">
+                                <rect key="frame" x="147" y="276" width="307" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="improoved my situation">
+                                    <color key="titleColor" red="1" green="0.60114057009138955" blue="0.059987612846754357" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="improovedmysituation:" destination="YY5-ia-XCo" eventType="touchUpInside" id="QkI-E8-hyv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gc-OA-Mcb" userLabel="madeitworse">
+                                <rect key="frame" x="208" y="391" width="185" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="made it worse">
+                                    <color key="titleColor" red="1" green="0.023573720190000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="madeitworse:" destination="YY5-ia-XCo" eventType="touchUpInside" id="MRd-mh-7rt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.84120417869999997" green="0.89055912329999998" blue="0.9124490489" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="HsM-4V-f9k" firstAttribute="top" secondItem="Cd0-6q-vWF" secondAttribute="bottom" constant="64" id="3vQ-MA-n2B"/>
+                            <constraint firstItem="9gc-OA-Mcb" firstAttribute="top" secondItem="HsM-4V-f9k" secondAttribute="bottom" constant="67" id="JFf-dL-bdy"/>
+                            <constraint firstAttribute="centerX" secondItem="9gc-OA-Mcb" secondAttribute="centerX" id="JRr-Dh-ffU"/>
+                            <constraint firstAttribute="centerX" secondItem="Cd0-6q-vWF" secondAttribute="centerX" id="ccz-4N-7uQ"/>
+                            <constraint firstAttribute="centerY" secondItem="HsM-4V-f9k" secondAttribute="centerY" id="sEh-bX-vAl"/>
+                            <constraint firstAttribute="centerX" secondItem="HsM-4V-f9k" secondAttribute="centerX" id="wlh-GU-gbz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="COR-X0-vwF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="YY5-ia-XCo" customClass="AppDelegate"/>
+            </objects>
+            <point key="canvasLocation" x="2430" y="1615"/>
         </scene>
     </scenes>
     <resources>

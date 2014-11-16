@@ -66,9 +66,9 @@ NSString *const kXMPPmyPassword = @"kXMPPmyPassword";
     [self dismissViewControllerAnimated:YES completion:NULL];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *chatViewController = [storyboard instantiateViewControllerWithIdentifier:@"rootViewController"];
+    UIViewController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"rootViewController"];
     
-    [self.navigationController pushViewController:chatViewController animated:YES];
+    [self.navigationController pushViewController:rootViewController animated:YES];
     //[self presentViewController:chatViewControler animated:YES completion:nil];
     
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message"

@@ -59,7 +59,13 @@
 
 
 - (IBAction)endChat:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:NULL];
+
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *chatViewController = [storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
+    
+    [self.navigationController pushViewController:chatViewController animated:YES];
+
     if([Config isHelpSeeker])
     {
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
@@ -70,7 +76,7 @@
         [Config setHasLogin:false];
         [Config setSupporter:nil];
         
-        [self.view endEditing:YES];
+        //[self.view endEditing:YES];
     }
 }
 

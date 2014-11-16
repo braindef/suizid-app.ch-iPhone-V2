@@ -78,5 +78,13 @@
 
 - (IBAction)needHelp:(id)sender;
 
+- (IBAction)savedmylife:(id)sender;
+- (IBAction)improovedmysituation:(id)sender;
+- (IBAction)madeitworse:(id)sender;
+- (void) sendEvaluation:(NSString*) points;
+
+
+
+
 @end
 

@@ -822,11 +822,42 @@ static AppDelegate *sParent;
     [Config setIsHelpSeeker:true];
     [self connect];
     [self sendLoginRequest];
-    
-    
 }
 
 
 
+- (IBAction)savedmylife:(id)sender
+{
+    [self sendEvaluation:@"rescued"];
+}
+- (IBAction)improovedmysituation:(id)sender
+{
+    [self sendEvaluation:@"helped"];
+}
+- (IBAction)madeitworse:(id)sender
+{
+    [self sendEvaluation:@"madeworse"];
+}
+
+
+- (void) sendEvaluation:(NSString*) points
+{
+    NSXMLElement *body =[NSXMLElement elementWithName:@"body"];
+    
+    NSString *acceptMessage = [NSString stringWithFormat:@"SuicidePreventionAppServerHelpSeekerEndSession;%@;%@",points, [Config supporter]];
+    
+    [body setStringValue:acceptMessage];
+    
+    NSXMLElement *message = [NSXMLElement elementWithName:@"message"];
+    [message addAttributeWithName:@"type" stringValue:@"chat"];
+    [message addAttributeWithName:@"to" stringValue:[Config serverBotJid]];
+    [message addChild:body];
+    
+    [[self xmppStream] sendElement:message];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"rootViewController"];
+    
+    [self.window.rootViewController presentViewController:rootViewController animated:YES completion:nil];}
 @end
 
