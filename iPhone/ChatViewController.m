@@ -12,6 +12,8 @@
 
 @implementation ChatViewController
 
+@synthesize message;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -96,10 +98,6 @@
     [self.chatTextView scrollRangeToVisible:range];
 }
 
-- (IBAction)temp:(id)sender {
-}
 
-
-@synthesize message;
 
 @end
