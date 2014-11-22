@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6V0-V7-4oQ">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -18,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mQ-T9-fBe" userLabel="CallSupporter">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mQ-T9-fBe" userLabel="CallSupporter">
                                 <rect key="frame" x="215" y="72" width="170" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -37,29 +36,35 @@
                                     <constraint firstAttribute="height" constant="200" id="jQe-Qa-Am1"/>
                                 </constraints>
                             </imageView>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="deB-e4-tnZ">
+                                <rect key="frame" x="0.0" y="0.0" width="606" height="44"/>
+                                <items>
+                                    <navigationItem id="OPm-IR-Ypb">
+                                        <barButtonItem key="leftBarButtonItem" title="Settings" id="0uF-lT-GlD" userLabel="Settings">
+                                            <connections>
+                                                <segue destination="xiD-cW-vdX" kind="show" id="uOf-xN-5bj"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Call" id="5qT-1J-SRk">
+                                            <connections>
+                                                <action selector="tempCall:" destination="BYZ-38-t0r" id="Zwh-mg-YEV"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.84120417869999997" green="0.89055912329999998" blue="0.9124490489" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="CZs-xc-Lg2" secondAttribute="centerX" id="6hW-aj-EuJ"/>
                             <constraint firstAttribute="centerX" secondItem="s2c-KE-4ac" secondAttribute="centerX" id="X4r-2P-4Jn"/>
+                            <constraint firstAttribute="width" secondItem="deB-e4-tnZ" secondAttribute="width" id="bbH-0r-BgW"/>
                             <constraint firstAttribute="centerY" secondItem="CZs-xc-Lg2" secondAttribute="centerY" id="gfN-9s-LzS"/>
                             <constraint firstAttribute="centerX" secondItem="0mQ-T9-fBe" secondAttribute="centerX" id="qfN-Jg-fSY"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="s2c-KE-4ac" secondAttribute="bottom" constant="20" id="s14-tU-6ys"/>
                             <constraint firstItem="0mQ-T9-fBe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="xb0-t3-5we"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hbz-8U-4YT">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="0wi-QI-bR8" userLabel="Settings">
-                            <connections>
-                                <segue destination="xiD-cW-vdX" kind="show" id="uW1-Bg-MEp"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Call" id="n9N-n8-fFc">
-                            <connections>
-                                <segue destination="Nw4-a0-5Cw" kind="show" id="xmz-Az-cp5"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <customObject id="TFZ-du-VRQ" customClass="AppDelegate">
@@ -68,7 +73,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="937" y="793"/>
+            <point key="canvasLocation" x="925" y="781"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7DU-ke-DsN">
@@ -80,9 +85,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JTQ-YZ-ZoK"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XXb-rU-UWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="lRz-VQ-hTc" customClass="AppDelegate">
@@ -207,7 +209,6 @@
                                 </state>
                                 <connections>
                                     <action selector="accept:" destination="Nw4-a0-5Cw" eventType="touchUpInside" id="Keu-in-Hpk"/>
-                                    <segue destination="2zi-Tm-3vk" kind="show" id="AMh-y9-pjc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nb0-fh-Zvf">
@@ -231,7 +232,6 @@
                                 </state>
                                 <connections>
                                     <action selector="decline:" destination="Nw4-a0-5Cw" eventType="touchUpInside" id="AHl-MQ-9ux"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="inT-fx-wUK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -302,7 +302,6 @@
                                         <barButtonItem key="rightBarButtonItem" title="End Chat" id="2Ml-lG-Mi7">
                                             <connections>
                                                 <action selector="endChat:" destination="2zi-Tm-3vk" id="Pee-Sn-CfS"/>
-                                                <segue destination="X8H-Vj-bYR" kind="show" id="Dqy-E2-wfM"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -397,6 +396,9 @@
                             <constraint firstAttribute="centerX" secondItem="HsM-4V-f9k" secondAttribute="centerX" id="wlh-GU-gbz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="delegate" destination="YY5-ia-XCo" id="Vyc-QL-NHo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="COR-X0-vwF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="YY5-ia-XCo" customClass="AppDelegate">
@@ -411,7 +413,4 @@
     <resources>
         <image name="polar_bear_help_full.png" width="1300" height="1300"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="inT-fx-wUK"/>
-    </inferredMetricsTieBreakers>
 </document>

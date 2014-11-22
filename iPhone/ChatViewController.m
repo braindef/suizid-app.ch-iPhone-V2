@@ -9,6 +9,9 @@
 #import "ChatViewController.h"
 #import "AppDelegate.h"
 #import "Config.h"
+@interface ChatViewController ()
+
+@end
 
 @implementation ChatViewController
 

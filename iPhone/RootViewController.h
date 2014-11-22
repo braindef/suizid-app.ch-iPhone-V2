@@ -10,6 +10,7 @@
 
 @interface RootViewController : UIViewController
 
+- (IBAction)tempCall:(id)sender;
 
 @end
 

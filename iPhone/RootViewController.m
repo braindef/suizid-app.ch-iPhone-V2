@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "AppDelegate.h"
 
 
 
@@ -17,12 +18,12 @@
 @implementation RootViewController
 
 - (void)viewDidLoad {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message"
-                                                        message:@"View Did Load"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil];
-    [alertView show];
+    //UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message"
+    //                                                    message:@"View Did Load"
+    //                                                   delegate:nil
+    //                                     cancelButtonTitle:@"Ok"
+    //                                          otherButtonTitles:nil];
+    //[alertView show];
     
     [super viewDidLoad];
     
@@ -34,4 +35,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)tempCall:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    [appDelegate tempCall];
+    
+}
 @end

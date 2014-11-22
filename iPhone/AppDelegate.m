@@ -75,14 +75,14 @@ static AppDelegate *sParent;
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *initViewController = [storyboard instantiateViewControllerWithIdentifier:@"rootViewController"];
-    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:initViewController];
+    //UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:initViewController];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen]bounds]];
     
     //navigationController = [[UINavigationController alloc] initWithRootViewController:initViewController];
     
     //self.window.rootViewController = nil;
-    self.window.rootViewController = navigationController;
+    self.window.rootViewController = initViewController;
     [self.window makeKeyAndVisible ];
     
     //[self.window.rootViewController presentViewController:rotViewController animated:YES completion:nil];
@@ -841,6 +841,15 @@ static AppDelegate *sParent;
     [Config setIsHelpSeeker:true];
     [self connect];
     [self sendLoginRequest];
+}
+
+- (void) tempCall
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *callViewController = [storyboard instantiateViewControllerWithIdentifier:@"callViewController"];
+    
+    [self.navigationController pushViewController:callViewController animated:YES];
+    self.window.rootViewController = callViewController;
 }
 
 - (void) endChat

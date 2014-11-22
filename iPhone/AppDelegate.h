@@ -90,7 +90,7 @@
 - (IBAction)madeitworse:(id)sender;
 - (void) sendEvaluation:(NSString*) points;
 
-
+- (void) tempCall;
 
 
 @end
