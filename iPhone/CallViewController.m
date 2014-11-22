@@ -39,14 +39,16 @@
 
 - (IBAction)decline:(id)sender {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
     [appDelegate sendDecline];
-    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)accept:(id)sender {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
     [appDelegate sendAccept];
-    [self dismissViewControllerAnimated:YES completion:NULL];
     
     
     

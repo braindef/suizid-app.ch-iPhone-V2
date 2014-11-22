@@ -53,6 +53,7 @@ static AppDelegate *sParent;
 @synthesize navigationController;
 @synthesize settingsViewController;
 @synthesize chatViewController;
+@synthesize rootViewController;
 //@synthesize loginButton;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -822,6 +823,25 @@ static AppDelegate *sParent;
     [Config setIsHelpSeeker:true];
     [self connect];
     [self sendLoginRequest];
+}
+
+- (void) endChat
+{
+    
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"rootViewController"];
+    
+    [self.window.rootViewController presentViewController:rootViewController animated:YES completion:nil];
+    
+    if([Config isHelpSeeker])
+    {
+        [self disconnect];
+        
+        [Config setIsHelpSeeker:false];
+        [Config setHasLogin:false];
+        [Config setSupporter:nil];
+    }
 }
 
 

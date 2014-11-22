@@ -268,6 +268,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pHW-Vx-NoG">
+                                <rect key="frame" x="16" y="540" width="450" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hallo" translatesAutoresizingMaskIntoConstraints="NO" id="oYG-JY-791">
+                                <rect key="frame" x="6" y="70" width="578" height="445"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6I-j5-zK2">
                                 <rect key="frame" x="498" y="540" width="80" height="30"/>
                                 <constraints>
@@ -281,13 +292,8 @@
                                     <action selector="sendMessage:" destination="2zi-Tm-3vk" eventType="touchUpInside" id="Xa4-Oa-fR1"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pHW-Vx-NoG">
-                                <rect key="frame" x="16" y="540" width="450" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7T-vY-Kku">
-                                <rect key="frame" x="6" y="6" width="588" height="44"/>
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W7T-vY-Kku">
+                                <rect key="frame" x="6" y="28" width="588" height="50"/>
                                 <items>
                                     <navigationItem id="Mvs-01-rGY">
                                         <barButtonItem key="rightBarButtonItem" title="End Chat" id="2Ml-lG-Mi7">
@@ -298,12 +304,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hallo" translatesAutoresizingMaskIntoConstraints="NO" id="oYG-JY-791">
-                                <rect key="frame" x="6" y="50" width="578" height="465"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -314,9 +314,10 @@
                             <constraint firstItem="c6I-j5-zK2" firstAttribute="top" secondItem="oYG-JY-791" secondAttribute="bottom" constant="25" id="7Fe-fN-BXl"/>
                             <constraint firstItem="c6I-j5-zK2" firstAttribute="leading" secondItem="pHW-Vx-NoG" secondAttribute="trailing" constant="32" id="7eL-5j-A6B"/>
                             <constraint firstItem="oYG-JY-791" firstAttribute="trailing" secondItem="gKr-iB-GB6" secondAttribute="trailingMargin" id="9Zf-Tb-7k3"/>
-                            <constraint firstItem="oYG-JY-791" firstAttribute="top" secondItem="3DU-Rf-fgp" secondAttribute="bottom" constant="30" id="DMY-na-YaU"/>
+                            <constraint firstItem="oYG-JY-791" firstAttribute="top" secondItem="3DU-Rf-fgp" secondAttribute="bottom" constant="50" id="DMY-na-YaU"/>
                             <constraint firstItem="jUe-ei-ay9" firstAttribute="top" secondItem="pHW-Vx-NoG" secondAttribute="bottom" constant="30" id="MCX-CU-w0Z"/>
                             <constraint firstItem="pHW-Vx-NoG" firstAttribute="leading" secondItem="gKr-iB-GB6" secondAttribute="leadingMargin" id="MRr-Mw-14u"/>
+                            <constraint firstItem="W7T-vY-Kku" firstAttribute="top" secondItem="3DU-Rf-fgp" secondAttribute="bottom" id="gwk-zP-4UP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="c6I-j5-zK2" secondAttribute="trailing" constant="6" id="oqc-HU-Cv8"/>
                             <constraint firstItem="W7T-vY-Kku" firstAttribute="leading" secondItem="gKr-iB-GB6" secondAttribute="leadingMargin" constant="-10" id="yIV-Vv-y6c"/>
                         </constraints>

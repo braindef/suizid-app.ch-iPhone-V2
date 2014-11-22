@@ -61,23 +61,12 @@
 - (IBAction)endChat:(id)sender {
 
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *chatViewController = [storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
+    //Dismiss keyboard
+    [self.view endEditing:YES];
     
-    [self.navigationController pushViewController:chatViewController animated:YES];
-
-    if([Config isHelpSeeker])
-    {
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-        [appDelegate disconnect];
-        
-        
-        [Config setIsHelpSeeker:false];
-        [Config setHasLogin:false];
-        [Config setSupporter:nil];
-        
-        //[self.view endEditing:YES];
-    }
+        [appDelegate endChat];
+
 }
 
 
@@ -86,6 +75,7 @@
     NSString* input = message.text;
     [self appendToTextView:input sender:@"me"];
     
+    //delete the text from the inputfield
     [message setText:@""];
     
     //send message to the xmpp service

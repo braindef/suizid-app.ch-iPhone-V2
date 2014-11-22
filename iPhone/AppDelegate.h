@@ -14,6 +14,7 @@
 @class SettingsViewController;
 @class ChatViewController;
 @class CallViewController;
+@class RootViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
@@ -42,6 +43,8 @@
 @property (weak, nonatomic) IBOutlet SettingsViewController *settingsViewController;
 @property (weak, nonatomic) IBOutlet ChatViewController *chatViewController;
 @property (weak, nonatomic) IBOutlet CallViewController *callViewController;
+@property (weak, nonatomic) IBOutlet RootViewController *rootViewController;
+
 
 @property (nonatomic, strong) AVAudioPlayer *avSound;
 
@@ -77,6 +80,8 @@
 - (void)sendAccept;
 
 - (IBAction)needHelp:(id)sender;
+
+- (void) endChat;
 
 - (IBAction)savedmylife:(id)sender;
 - (IBAction)improovedmysituation:(id)sender;
