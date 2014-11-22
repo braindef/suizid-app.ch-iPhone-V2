@@ -55,7 +55,7 @@ static AppDelegate *sParent;
 @synthesize settingsViewController;
 @synthesize chatViewController;
 @synthesize rootViewController;
-@synthesize evaluateViewController
+@synthesize evaluateViewController;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -847,10 +847,10 @@ static AppDelegate *sParent;
 {
     
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"rootViewController"];
+    //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    //UIViewController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"rootViewController"];
     
-    [self.window.rootViewController presentViewController:rootViewController animated:YES completion:nil];
+    //[self.window.rootViewController presentViewController:rootViewController animated:YES completion:nil];
     
     if([Config isHelpSeeker])
     {
