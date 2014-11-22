@@ -4,6 +4,7 @@
 #import "SettingsViewController.h"
 #import "ChatViewController.h"
 #import "CallViewController.h"
+#import "EvaluateViewController.h"
 
 #import "GCDAsyncSocket.h"
 #import "XMPP.h"
@@ -54,7 +55,8 @@ static AppDelegate *sParent;
 @synthesize settingsViewController;
 @synthesize chatViewController;
 @synthesize rootViewController;
-//@synthesize loginButton;
+@synthesize evaluateViewController
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -70,6 +72,22 @@ static AppDelegate *sParent;
     
     //[window setRootViewController:navigationController];
     //[window makeKeyAndVisible];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *initViewController = [storyboard instantiateViewControllerWithIdentifier:@"rootViewController"];
+    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:initViewController];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen]bounds]];
+    
+    //navigationController = [[UINavigationController alloc] initWithRootViewController:initViewController];
+    
+    //self.window.rootViewController = nil;
+    self.window.rootViewController = navigationController;
+    [self.window makeKeyAndVisible ];
+    
+    //[self.window.rootViewController presentViewController:rotViewController animated:YES completion:nil];
+    
+    
     
     if (![self connect])
     {

@@ -15,6 +15,7 @@
 @class ChatViewController;
 @class CallViewController;
 @class RootViewController;
+@class EvaluateViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
@@ -44,6 +45,7 @@
 @property (weak, nonatomic) IBOutlet ChatViewController *chatViewController;
 @property (weak, nonatomic) IBOutlet CallViewController *callViewController;
 @property (weak, nonatomic) IBOutlet RootViewController *rootViewController;
+@property (weak, nonatomic) IBOutlet EvaluateViewController *evaluateViewController;
 
 
 @property (nonatomic, strong) AVAudioPlayer *avSound;

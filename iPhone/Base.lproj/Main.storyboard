@@ -9,7 +9,7 @@
         <!--RootViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="rootViewController" id="BYZ-38-t0r" userLabel="RootViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rootViewController" id="BYZ-38-t0r" userLabel="RootViewController" customClass="RootViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,13 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="polar_bear_help_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="CZs-xc-Lg2">
-                                <rect key="frame" x="200" y="200" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="F94-wT-e1f"/>
-                                    <constraint firstAttribute="height" constant="200" id="jQe-Qa-Am1"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mQ-T9-fBe" userLabel="CallSupporter">
                                 <rect key="frame" x="215" y="72" width="170" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
@@ -36,10 +29,14 @@
                                 <state key="normal" title="I need help">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="needHelp:" destination="yJk-6R-i8z" eventType="touchUpInside" id="7yC-z3-s2U"/>
-                                </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="polar_bear_help_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="CZs-xc-Lg2">
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="F94-wT-e1f"/>
+                                    <constraint firstAttribute="height" constant="200" id="jQe-Qa-Am1"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.84120417869999997" green="0.89055912329999998" blue="0.9124490489" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -54,18 +51,22 @@
                     <navigationItem key="navigationItem" id="hbz-8U-4YT">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="0wi-QI-bR8" userLabel="Settings">
                             <connections>
-                                <segue destination="xiD-cW-vdX" kind="show" id="Yes-Ag-nSl"/>
+                                <segue destination="xiD-cW-vdX" kind="show" id="uW1-Bg-MEp"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="n9N-n8-fFc">
+                        <barButtonItem key="rightBarButtonItem" title="Call" id="n9N-n8-fFc">
                             <connections>
-                                <segue destination="Nw4-a0-5Cw" kind="show" id="9wn-UM-cP1"/>
+                                <segue destination="Nw4-a0-5Cw" kind="show" id="xmz-Az-cp5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <customObject id="yJk-6R-i8z" customClass="AppDelegate"/>
+                <customObject id="TFZ-du-VRQ" customClass="AppDelegate">
+                    <connections>
+                        <outlet property="rootViewController" destination="BYZ-38-t0r" id="dYX-PX-0bI"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="937" y="793"/>
         </scene>
@@ -80,7 +81,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fne-dh-GZW"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JTQ-YZ-ZoK"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XXb-rU-UWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -206,6 +207,7 @@
                                 </state>
                                 <connections>
                                     <action selector="accept:" destination="Nw4-a0-5Cw" eventType="touchUpInside" id="Keu-in-Hpk"/>
+                                    <segue destination="2zi-Tm-3vk" kind="show" id="AMh-y9-pjc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nb0-fh-Zvf">
@@ -214,7 +216,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFt-e6-J61" userLabel="CallSupporter">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFt-e6-J61" userLabel="CallSupporter">
                                 <rect key="frame" x="215" y="72" width="170" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -229,6 +231,7 @@
                                 </state>
                                 <connections>
                                     <action selector="decline:" destination="Nw4-a0-5Cw" eventType="touchUpInside" id="AHl-MQ-9ux"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="inT-fx-wUK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -299,6 +302,7 @@
                                         <barButtonItem key="rightBarButtonItem" title="End Chat" id="2Ml-lG-Mi7">
                                             <connections>
                                                 <action selector="endChat:" destination="2zi-Tm-3vk" id="Pee-Sn-CfS"/>
+                                                <segue destination="X8H-Vj-bYR" kind="show" id="Dqy-E2-wfM"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -340,7 +344,7 @@
         <!--EvaluateViewController-->
         <scene sceneID="4Fx-N0-7KD">
             <objects>
-                <viewController storyboardIdentifier="evaluateViewController" id="X8H-Vj-bYR" userLabel="EvaluateViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="evaluateViewController" id="X8H-Vj-bYR" userLabel="EvaluateViewController" customClass="EvaluateViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dLo-Xg-OtA"/>
                         <viewControllerLayoutGuide type="bottom" id="xey-ul-Jff"/>
@@ -403,4 +407,7 @@
     <resources>
         <image name="polar_bear_help_full.png" width="1300" height="1300"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="inT-fx-wUK"/>
+    </inferredMetricsTieBreakers>
 </document>

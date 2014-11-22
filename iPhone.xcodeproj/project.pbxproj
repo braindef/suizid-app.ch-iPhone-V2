@@ -179,6 +179,7 @@
 		49609DA21A1625ED0096ACC3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49609DA11A1625ED0096ACC3 /* Images.xcassets */; };
 		49609DA51A1625ED0096ACC3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49609DA31A1625ED0096ACC3 /* LaunchScreen.xib */; };
 		49609DB11A1625ED0096ACC3 /* iPhoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49609DB01A1625ED0096ACC3 /* iPhoneTests.m */; };
+		496A0DE21A21282200E259DB /* EvaluateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496A0DE11A21282200E259DB /* EvaluateViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -522,6 +523,8 @@
 		49609DAA1A1625ED0096ACC3 /* iPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iPhoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49609DAF1A1625ED0096ACC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49609DB01A1625ED0096ACC3 /* iPhoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iPhoneTests.m; sourceTree = "<group>"; };
+		496A0DE01A21282200E259DB /* EvaluateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateViewController.h; sourceTree = "<group>"; };
+		496A0DE11A21282200E259DB /* EvaluateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1488,6 +1491,8 @@
 				49609D9C1A1625ED0096ACC3 /* RootViewController.m */,
 				494FE4C11A162F8A007B4CC1 /* SettingsViewController.h */,
 				494FE4C21A162F8A007B4CC1 /* SettingsViewController.m */,
+				496A0DE01A21282200E259DB /* EvaluateViewController.h */,
+				496A0DE11A21282200E259DB /* EvaluateViewController.m */,
 				49609DA31A1625ED0096ACC3 /* LaunchScreen.xib */,
 				493BAC211A181F6F007AA487 /* Main.storyboard */,
 				49609DA11A1625ED0096ACC3 /* Images.xcassets */,
@@ -1756,6 +1761,7 @@
 				493BABE71A17E122007AA487 /* NSXMLElement+XEP_0297.m in Sources */,
 				493BAB8E1A17E122007AA487 /* XMPPGoogleSharedStatus.m in Sources */,
 				493BAB7C1A17E122007AA487 /* XMPPPlainAuthentication.m in Sources */,
+				496A0DE21A21282200E259DB /* EvaluateViewController.m in Sources */,
 				493BABA61A17E122007AA487 /* XMPPRoomHybridStorage.m in Sources */,
 				493BAB841A17E122007AA487 /* XMPPElement.m in Sources */,
 				493BABF71A17E122007AA487 /* DDTTYLogger.m in Sources */,
