@@ -848,7 +848,7 @@ static AppDelegate *sParent;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *callViewController = [storyboard instantiateViewControllerWithIdentifier:@"callViewController"];
     
-    [self.navigationController pushViewController:callViewController animated:YES];
+    //[self.navigationController pushViewController:callViewController animated:YES];
     self.window.rootViewController = callViewController;
 }
 
@@ -860,6 +860,12 @@ static AppDelegate *sParent;
     //UIViewController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"rootViewController"];
     
     //[self.window.rootViewController presentViewController:rootViewController animated:YES completion:nil];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *evaluateViewController = [storyboard instantiateViewControllerWithIdentifier:@"evaluateViewController"];
+    
+    //[self.navigationController pushViewController:callViewController animated:YES];
+    self.window.rootViewController = evaluateViewController;
     
     if([Config isHelpSeeker])
     {
@@ -884,11 +890,21 @@ static AppDelegate *sParent;
 - (IBAction)madeitworse:(id)sender
 {
     [self sendEvaluation:@"madeworse"];
+    
+
 }
 
 
 - (void) sendEvaluation:(NSString*) points
 {
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message"
+                                                        message:@"Button"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+    [alertView show];
+    
     NSXMLElement *body =[NSXMLElement elementWithName:@"body"];
     
     NSString *acceptMessage = [NSString stringWithFormat:@"SuicidePreventionAppServerHelpSeekerEndSession;%@;%@",points, [Config supporter]];
@@ -903,8 +919,13 @@ static AppDelegate *sParent;
     [[self xmppStream] sendElement:message];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"rootViewController"];
+    UIViewController *initViewController = [storyboard instantiateViewControllerWithIdentifier:@"rootViewController"];
     
-    [self.window.rootViewController presentViewController:rootViewController animated:YES completion:nil];}
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen]bounds]];
+    
+    self.window.rootViewController = initViewController;
+    [self.window makeKeyAndVisible ];
+
+}
 @end
 

@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mQ-T9-fBe" userLabel="CallSupporter">
-                                <rect key="frame" x="215" y="72" width="170" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mQ-T9-fBe" userLabel="CallSupporter">
+                                <rect key="frame" x="215" y="28" width="170" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -28,6 +28,9 @@
                                 <state key="normal" title="I need help">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="needHelp:" destination="TFZ-du-VRQ" eventType="touchUpInside" id="eEf-lI-Fsr"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="polar_bear_help_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="CZs-xc-Lg2">
                                 <rect key="frame" x="200" y="200" width="200" height="200"/>
@@ -36,8 +39,8 @@
                                     <constraint firstAttribute="height" constant="200" id="jQe-Qa-Am1"/>
                                 </constraints>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="deB-e4-tnZ">
-                                <rect key="frame" x="0.0" y="0.0" width="606" height="44"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deB-e4-tnZ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <navigationItem id="OPm-IR-Ypb">
                                         <barButtonItem key="leftBarButtonItem" title="Settings" id="0uF-lT-GlD" userLabel="Settings">
@@ -56,10 +59,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.84120417869999997" green="0.89055912329999998" blue="0.9124490489" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="deB-e4-tnZ" firstAttribute="leading" secondItem="y3c-jy-aDJ" secondAttribute="leading" id="4Rb-aL-yah"/>
                             <constraint firstAttribute="centerX" secondItem="CZs-xc-Lg2" secondAttribute="centerX" id="6hW-aj-EuJ"/>
                             <constraint firstAttribute="centerX" secondItem="s2c-KE-4ac" secondAttribute="centerX" id="X4r-2P-4Jn"/>
                             <constraint firstAttribute="width" secondItem="deB-e4-tnZ" secondAttribute="width" id="bbH-0r-BgW"/>
                             <constraint firstAttribute="centerY" secondItem="CZs-xc-Lg2" secondAttribute="centerY" id="gfN-9s-LzS"/>
+                            <constraint firstItem="deB-e4-tnZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jSB-aD-kuh"/>
                             <constraint firstAttribute="centerX" secondItem="0mQ-T9-fBe" secondAttribute="centerX" id="qfN-Jg-fSY"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="s2c-KE-4ac" secondAttribute="bottom" constant="20" id="s14-tU-6ys"/>
                             <constraint firstItem="0mQ-T9-fBe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="xb0-t3-5we"/>
@@ -217,8 +222,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFt-e6-J61" userLabel="CallSupporter">
-                                <rect key="frame" x="215" y="72" width="170" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFt-e6-J61" userLabel="CallSupporter">
+                                <rect key="frame" x="215" y="28" width="170" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -295,8 +300,8 @@
                                     <action selector="sendMessage:" destination="2zi-Tm-3vk" eventType="touchUpInside" id="Xa4-Oa-fR1"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W7T-vY-Kku">
-                                <rect key="frame" x="6" y="28" width="588" height="50"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7T-vY-Kku">
+                                <rect key="frame" x="6" y="20" width="588" height="50"/>
                                 <items>
                                     <navigationItem id="Mvs-01-rGY">
                                         <barButtonItem key="rightBarButtonItem" title="End Chat" id="2Ml-lG-Mi7">
@@ -340,74 +345,71 @@
             </objects>
             <point key="canvasLocation" x="1801" y="2030"/>
         </scene>
-        <!--EvaluateViewController-->
-        <scene sceneID="4Fx-N0-7KD">
+        <!--Evaluate View Controller-->
+        <scene sceneID="KBk-6O-f1I">
             <objects>
-                <viewController storyboardIdentifier="evaluateViewController" id="X8H-Vj-bYR" userLabel="EvaluateViewController" customClass="EvaluateViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="evaluateViewController" id="Mez-FT-egx" customClass="EvaluateViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dLo-Xg-OtA"/>
-                        <viewControllerLayoutGuide type="bottom" id="xey-ul-Jff"/>
+                        <viewControllerLayoutGuide type="top" id="QTd-xw-V5k"/>
+                        <viewControllerLayoutGuide type="bottom" id="qhh-rq-02M"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ji0-cX-v3w">
+                    <view key="view" contentMode="scaleToFill" id="JJu-bp-bkf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cd0-6q-vWF" userLabel="Savedmylife">
-                                <rect key="frame" x="212" y="164" width="176" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Saved my life">
-                                    <color key="titleColor" red="0.02595118959" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="savedmylife:" destination="YY5-ia-XCo" eventType="touchUpInside" id="bZ9-jq-bfv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HsM-4V-f9k" userLabel="improovedmysituation">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLq-93-Y3Q" userLabel="improovedmysituation">
                                 <rect key="frame" x="147" y="276" width="307" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="improoved my situation">
-                                    <color key="titleColor" red="1" green="0.60114057009138955" blue="0.059987612846754357" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="0.60114057009999999" blue="0.059987612849999997" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="improovedmysituation:" destination="YY5-ia-XCo" eventType="touchUpInside" id="QkI-E8-hyv"/>
+                                    <action selector="improovedmysituation:" destination="TU0-EB-daw" eventType="touchUpInside" id="qOv-hU-A8t"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gc-OA-Mcb" userLabel="madeitworse">
-                                <rect key="frame" x="208" y="391" width="185" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzc-4C-kX3" userLabel="madeitworse">
+                                <rect key="frame" x="208" y="432" width="185" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="made it worse">
                                     <color key="titleColor" red="1" green="0.023573720190000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="madeitworse:" destination="YY5-ia-XCo" eventType="touchUpInside" id="MRd-mh-7rt"/>
+                                    <action selector="madeitworse:" destination="TU0-EB-daw" eventType="touchUpInside" id="ueU-Qj-Xoo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpV-D1-tYP" userLabel="Savedmylife">
+                                <rect key="frame" x="212" y="121" width="176" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Saved my life">
+                                    <color key="titleColor" red="0.02595118959" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="savedmylife:" destination="TU0-EB-daw" eventType="touchUpInside" id="62y-HZ-kUZ"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.84120417869999997" green="0.89055912329999998" blue="0.9124490489" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HsM-4V-f9k" firstAttribute="top" secondItem="Cd0-6q-vWF" secondAttribute="bottom" constant="64" id="3vQ-MA-n2B"/>
-                            <constraint firstItem="9gc-OA-Mcb" firstAttribute="top" secondItem="HsM-4V-f9k" secondAttribute="bottom" constant="67" id="JFf-dL-bdy"/>
-                            <constraint firstAttribute="centerX" secondItem="9gc-OA-Mcb" secondAttribute="centerX" id="JRr-Dh-ffU"/>
-                            <constraint firstAttribute="centerX" secondItem="Cd0-6q-vWF" secondAttribute="centerX" id="ccz-4N-7uQ"/>
-                            <constraint firstAttribute="centerY" secondItem="HsM-4V-f9k" secondAttribute="centerY" id="sEh-bX-vAl"/>
-                            <constraint firstAttribute="centerX" secondItem="HsM-4V-f9k" secondAttribute="centerX" id="wlh-GU-gbz"/>
+                            <constraint firstAttribute="centerX" secondItem="mzc-4C-kX3" secondAttribute="centerX" id="7sX-4F-JJc"/>
+                            <constraint firstItem="bpV-D1-tYP" firstAttribute="top" secondItem="QTd-xw-V5k" secondAttribute="bottom" constant="101" id="9P7-SW-846"/>
+                            <constraint firstAttribute="centerX" secondItem="bpV-D1-tYP" secondAttribute="centerX" id="XLz-TJ-qlw"/>
+                            <constraint firstAttribute="centerX" secondItem="lLq-93-Y3Q" secondAttribute="centerX" id="asb-0T-rn3"/>
+                            <constraint firstItem="qhh-rq-02M" firstAttribute="top" secondItem="mzc-4C-kX3" secondAttribute="bottom" constant="120" id="jzf-A5-s5K"/>
+                            <constraint firstAttribute="centerY" secondItem="lLq-93-Y3Q" secondAttribute="centerY" id="zsC-hK-obD"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="delegate" destination="YY5-ia-XCo" id="Vyc-QL-NHo"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="COR-X0-vwF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="YY5-ia-XCo" customClass="AppDelegate">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U2W-se-JHW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="TU0-EB-daw" customClass="AppDelegate">
                     <connections>
-                        <outlet property="evaluateViewController" destination="X8H-Vj-bYR" id="qBb-sh-OT9"/>
+                        <outlet property="evaluateViewController" destination="Mez-FT-egx" id="TCV-Ha-Km1"/>
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="2614" y="1795"/>
+            <point key="canvasLocation" x="2640" y="1772"/>
         </scene>
     </scenes>
     <resources>

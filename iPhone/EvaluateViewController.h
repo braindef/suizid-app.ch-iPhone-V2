@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EvaluateViewController : UINavigationController
+@interface EvaluateViewController : UIViewController
 
 @end
