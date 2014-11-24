@@ -26,9 +26,10 @@ static NSString *serverBotJid=@"server@suizid-app.ch";
 static NSString *supporter = nil;
 static NSString *helpSeeker = nil;
 
-static bool *isSupporter=false;
-static bool *isHelpSeeker=false;
-static bool *hasLogin=false;
+//soll ein int bool sein folglich klein bool
+static BOOL isSupporter=false;
+static BOOL isHelpSeeker=false;
+static BOOL hasLogin=false;
 
 
 + (NSString*)servername { return servername; }
@@ -55,14 +56,14 @@ static bool *hasLogin=false;
 + (NSString *)helpSeeker { return helpSeeker; }
 + (void)setHelpSeeker: (NSString*)newHelpSeeker { helpSeeker = newHelpSeeker; }
 
-+ (BOOL *)isSupporter {return isSupporter; }
-+ (void)setIsSupporter: (BOOL*)newIsSupporter { isSupporter = newIsSupporter; }
++ (BOOL)isSupporter {return isSupporter; }
++ (void)setIsSupporter: (BOOL)newIsSupporter { isSupporter = newIsSupporter; }
 
-+ (BOOL *)isHelpSeeker { return isHelpSeeker; }
-+ (void)setIsHelpSeeker: (BOOL*)newIsHelpSeeker { isHelpSeeker = newIsHelpSeeker; }
++ (BOOL)isHelpSeeker { return isHelpSeeker; }
++ (void)setIsHelpSeeker: (BOOL)newIsHelpSeeker { isHelpSeeker = newIsHelpSeeker; }
 
-+ (BOOL *)hasLogin { return hasLogin; }
-+ (void)setHasLogin: (BOOL*)newHasLogin { hasLogin = newHasLogin; }
++ (BOOL)hasLogin { return hasLogin; }
++ (void)setHasLogin: (BOOL)newHasLogin { hasLogin = newHasLogin; }
 
 @end
 

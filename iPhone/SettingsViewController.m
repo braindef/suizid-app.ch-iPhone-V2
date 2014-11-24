@@ -71,12 +71,16 @@ NSString *const kXMPPmyPassword = @"kXMPPmyPassword";
     [self.navigationController pushViewController:rootViewController animated:YES];
     //[self presentViewController:chatViewControler animated:YES completion:nil];
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message"
-                                                        message:@"Button"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil];
-    [alertView show];
+    //UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message"
+    //                                                    message:@"Button"
+    //                                                   delegate:nil
+      //                                        cancelButtonTitle:@"Ok"
+        //                                      otherButtonTitles:nil];
+    //[alertView show];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    [appDelegate disconnect];
+    [appDelegate connect];
     
 }
 

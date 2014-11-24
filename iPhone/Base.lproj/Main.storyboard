@@ -23,15 +23,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2c-KE-4ac" userLabel="Ineedhelp">
-                                <rect key="frame" x="262" y="550" width="76" height="30"/>
-                                <state key="normal" title="I need help">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="needHelp:" destination="TFZ-du-VRQ" eventType="touchUpInside" id="eEf-lI-Fsr"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="polar_bear_help_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="CZs-xc-Lg2">
                                 <rect key="frame" x="200" y="200" width="200" height="200"/>
                                 <constraints>
@@ -56,6 +47,15 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2c-KE-4ac" userLabel="Ineedhelp">
+                                <rect key="frame" x="262" y="550" width="76" height="30"/>
+                                <state key="normal" title="I need help">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="needHelp:" destination="TFZ-du-VRQ" eventType="touchUpInside" id="eEf-lI-Fsr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.84120417869999997" green="0.89055912329999998" blue="0.9124490489" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -112,7 +112,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="supporter@suizid-app.ch" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CQf-ye-Far">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="supporter@suizid-app.ch" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CQf-ye-Far">
                                 <rect key="frame" x="126" y="72" width="183" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -120,19 +120,19 @@
                                     <action selector="hideKeyboard:" destination="xiD-cW-vdX" eventType="editingDidEndOnExit" id="97F-Ym-Mm5"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRd-9A-4mQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRd-9A-4mQ">
                                 <rect key="frame" x="16" y="76" width="102" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGE-7W-mtX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGE-7W-mtX">
                                 <rect key="frame" x="16" y="121" width="102" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="server@suizid-app.ch" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eil-Od-QX4">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="server@suizid-app.ch" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eil-Od-QX4">
                                 <rect key="frame" x="149" y="164" width="160" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -140,13 +140,16 @@
                                     <action selector="hideKeyboard:" destination="xiD-cW-vdX" eventType="editingDidEndOnExit" id="pae-4c-Ltg"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Server Bot JID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NO2-Kq-yzl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Server Bot JID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NO2-Kq-yzl">
                                 <rect key="frame" x="16" y="168" width="125" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="XrA-wQ-D4K"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rrS-5I-5hA">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rrS-5I-5hA">
                                 <rect key="frame" x="126" y="117" width="183" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -154,15 +157,45 @@
                                     <action selector="hideKeyboard:" destination="xiD-cW-vdX" eventType="editingDidEndOnExit" id="fR1-88-DPg"/>
                                 </connections>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hqZ-Up-1nd">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="EFO-bT-xs2">
+                                        <barButtonItem key="leftBarButtonItem" title="save" id="MXz-4I-zr0">
+                                            <connections>
+                                                <action selector="done:" destination="xiD-cW-vdX" id="ujY-gq-Dl2"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="stats" id="di7-yb-fMO"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CQf-ye-Far" firstAttribute="leading" secondItem="rrS-5I-5hA" secondAttribute="leading" id="0fe-fo-7MJ"/>
+                            <constraint firstItem="NO2-Kq-yzl" firstAttribute="top" secondItem="rGE-7W-mtX" secondAttribute="bottom" constant="26" id="2HY-TD-cRN"/>
+                            <constraint firstItem="NO2-Kq-yzl" firstAttribute="leading" secondItem="BRd-9A-4mQ" secondAttribute="leading" id="4un-vn-Pw5"/>
+                            <constraint firstItem="hqZ-Up-1nd" firstAttribute="top" secondItem="6rP-yi-XHV" secondAttribute="top" id="8f7-qC-17X"/>
+                            <constraint firstItem="CQf-ye-Far" firstAttribute="leading" secondItem="BRd-9A-4mQ" secondAttribute="trailing" constant="8" symbolic="YES" id="O2M-wn-Mz4"/>
+                            <constraint firstItem="hqZ-Up-1nd" firstAttribute="leading" secondItem="hab-Bo-btg" secondAttribute="leading" id="W05-YG-VzM"/>
+                            <constraint firstItem="rrS-5I-5hA" firstAttribute="leading" secondItem="rGE-7W-mtX" secondAttribute="trailing" constant="8" symbolic="YES" id="XRd-3e-a9j"/>
+                            <constraint firstItem="hqZ-Up-1nd" firstAttribute="width" secondItem="6rP-yi-XHV" secondAttribute="width" id="aSC-CR-XFV"/>
+                            <constraint firstItem="NO2-Kq-yzl" firstAttribute="leading" secondItem="rGE-7W-mtX" secondAttribute="leading" id="aSb-m9-8Xv"/>
+                            <constraint firstItem="eil-Od-QX4" firstAttribute="top" secondItem="rrS-5I-5hA" secondAttribute="bottom" constant="17" id="aju-8w-Fk2"/>
+                            <constraint firstItem="eil-Od-QX4" firstAttribute="leading" secondItem="NO2-Kq-yzl" secondAttribute="trailing" constant="8" symbolic="YES" id="dxZ-vP-gg3"/>
+                            <constraint firstItem="CQf-ye-Far" firstAttribute="top" secondItem="hqZ-Up-1nd" secondAttribute="bottom" constant="28" id="gpe-Mc-dIi"/>
+                            <constraint firstItem="NO2-Kq-yzl" firstAttribute="top" secondItem="rrS-5I-5hA" secondAttribute="bottom" constant="21" id="h6d-iD-xQO"/>
+                            <constraint firstItem="CQf-ye-Far" firstAttribute="trailing" secondItem="eil-Od-QX4" secondAttribute="trailing" id="hZJ-m9-LDO"/>
+                            <constraint firstItem="rrS-5I-5hA" firstAttribute="top" secondItem="CQf-ye-Far" secondAttribute="bottom" constant="15" id="pk2-nG-08e"/>
+                            <constraint firstItem="CQf-ye-Far" firstAttribute="leading" secondItem="6rP-yi-XHV" secondAttribute="leading" constant="126" id="pns-9u-j47"/>
+                            <constraint firstItem="NO2-Kq-yzl" firstAttribute="leading" secondItem="6rP-yi-XHV" secondAttribute="leadingMargin" id="s1s-Sz-cuv"/>
+                            <constraint firstItem="CQf-ye-Far" firstAttribute="trailing" secondItem="rrS-5I-5hA" secondAttribute="trailing" id="tcX-Ne-pMC"/>
+                            <constraint firstItem="rGE-7W-mtX" firstAttribute="top" secondItem="BRd-9A-4mQ" secondAttribute="bottom" constant="24" id="wdq-Tu-cIe"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MNE-jR-OiV">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="EVf-Vi-VfF">
-                            <connections>
-                                <action selector="done:" destination="xiD-cW-vdX" id="p3z-Hs-yjc"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="EVf-Vi-VfF"/>
                     </navigationItem>
                     <connections>
                         <outlet property="jidField" destination="CQf-ye-Far" id="JdN-YV-0hH"/>
@@ -177,7 +210,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="2614" y="781"/>
+            <point key="canvasLocation" x="2646" y="788"/>
         </scene>
         <!--CallViewController-->
         <scene sceneID="UP0-VC-cCs">
@@ -357,30 +390,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLq-93-Y3Q" userLabel="improovedmysituation">
-                                <rect key="frame" x="147" y="276" width="307" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="improoved my situation">
-                                    <color key="titleColor" red="1" green="0.60114057009999999" blue="0.059987612849999997" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="improovedmysituation:" destination="TU0-EB-daw" eventType="touchUpInside" id="qOv-hU-A8t"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzc-4C-kX3" userLabel="madeitworse">
-                                <rect key="frame" x="208" y="432" width="185" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="made it worse">
-                                    <color key="titleColor" red="1" green="0.023573720190000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="madeitworse:" destination="TU0-EB-daw" eventType="touchUpInside" id="ueU-Qj-Xoo"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpV-D1-tYP" userLabel="Savedmylife">
-                                <rect key="frame" x="212" y="121" width="176" height="48"/>
+                                <rect key="frame" x="212" y="60" width="176" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Saved my life">
                                     <color key="titleColor" red="0.02595118959" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -390,14 +401,36 @@
                                     <action selector="savedmylife:" destination="TU0-EB-daw" eventType="touchUpInside" id="62y-HZ-kUZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzc-4C-kX3" userLabel="madeitworse">
+                                <rect key="frame" x="208" y="512" width="185" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="made it worse">
+                                    <color key="titleColor" red="1" green="0.023573720190000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="madeitworse:" destination="TU0-EB-daw" eventType="touchUpInside" id="ueU-Qj-Xoo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLq-93-Y3Q" userLabel="improovedmysituation">
+                                <rect key="frame" x="147" y="276" width="307" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="improoved my situation">
+                                    <color key="titleColor" red="1" green="0.60114057009999999" blue="0.059987612849999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="improovedmysituation:" destination="TU0-EB-daw" eventType="touchUpInside" id="qOv-hU-A8t"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="mzc-4C-kX3" secondAttribute="centerX" id="7sX-4F-JJc"/>
-                            <constraint firstItem="bpV-D1-tYP" firstAttribute="top" secondItem="QTd-xw-V5k" secondAttribute="bottom" constant="101" id="9P7-SW-846"/>
+                            <constraint firstItem="bpV-D1-tYP" firstAttribute="top" secondItem="QTd-xw-V5k" secondAttribute="bottom" constant="40" id="9P7-SW-846"/>
                             <constraint firstAttribute="centerX" secondItem="bpV-D1-tYP" secondAttribute="centerX" id="XLz-TJ-qlw"/>
                             <constraint firstAttribute="centerX" secondItem="lLq-93-Y3Q" secondAttribute="centerX" id="asb-0T-rn3"/>
-                            <constraint firstItem="qhh-rq-02M" firstAttribute="top" secondItem="mzc-4C-kX3" secondAttribute="bottom" constant="120" id="jzf-A5-s5K"/>
+                            <constraint firstItem="qhh-rq-02M" firstAttribute="top" secondItem="mzc-4C-kX3" secondAttribute="bottom" constant="40" id="jzf-A5-s5K"/>
                             <constraint firstAttribute="centerY" secondItem="lLq-93-Y3Q" secondAttribute="centerY" id="zsC-hK-obD"/>
                         </constraints>
                     </view>

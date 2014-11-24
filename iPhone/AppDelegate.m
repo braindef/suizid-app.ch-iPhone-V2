@@ -838,7 +838,7 @@ static AppDelegate *sParent;
 
 
 - (IBAction)needHelp:(id)sender {
-    [Config setIsHelpSeeker:true];
+    Config.isHelpSeeker=true;
     [self connect];
     [self sendLoginRequest];
 }
