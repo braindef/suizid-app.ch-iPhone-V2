@@ -58,8 +58,10 @@ NSString *const kXMPPmyPassword = @"kXMPPmyPassword";
   [self setField:jidField forKey:kXMPPmyJID];
   [self setField:passwordField forKey:kXMPPmyPassword];
 
-  [self dismissViewControllerAnimated:YES completion:NULL];
-  
+  //[self dismissViewControllerAnimated:YES completion:NULL];
+   
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    appDelegate.window.rootViewController = appDelegate.rootViewController;
 
 }
 

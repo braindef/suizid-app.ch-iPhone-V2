@@ -200,7 +200,8 @@
 
 - (IBAction)settings:(id)sender
 {
-	[self.navigationController presentViewController:[[self appDelegate] settingsViewController] animated:YES completion:NULL];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    appDelegate.window.rootViewController = appDelegate.settingsViewController;
 }
 
 

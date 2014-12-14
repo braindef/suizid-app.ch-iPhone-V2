@@ -55,15 +55,14 @@ static bool *hasLogin=false;
 + (NSString *)helpSeeker { return helpSeeker; }
 + (void)setHelpSeeker: (NSString*)newHelpSeeker { helpSeeker = newHelpSeeker; }
 
-+ (BOOL *)isSupporter {return isSupporter; }
-+ (void)setIsSupporter: (BOOL*)newIsSupporter { isSupporter = newIsSupporter; }
++ (BOOL)isSupporter {return isSupporter; }
++ (void)setIsSupporter: (BOOL)newIsSupporter { isSupporter = newIsSupporter; }
 
-+ (BOOL *)isHelpSeeker { return isHelpSeeker; }
-+ (void)setIsHelpSeeker: (BOOL*)newIsHelpSeeker { isHelpSeeker = newIsHelpSeeker; }
++ (BOOL)isHelpSeeker { return isHelpSeeker; }
++ (void)setIsHelpSeeker: (BOOL)newIsHelpSeeker { isHelpSeeker = newIsHelpSeeker; }
 
-+ (BOOL *)hasLogin { return hasLogin; }
-+ (void)setHasLogin: (BOOL*)newHasLogin { hasLogin = newHasLogin; }
-
++ (BOOL)hasLogin { return hasLogin; }
++ (void)setHasLogin: (BOOL)newHasLogin { hasLogin = newHasLogin; }	
 @end
 
 

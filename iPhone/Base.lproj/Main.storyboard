@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6V0-V7-4oQ">
     <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -36,7 +37,7 @@
                                     <navigationItem id="OPm-IR-Ypb">
                                         <barButtonItem key="leftBarButtonItem" title="Settings" id="0uF-lT-GlD" userLabel="Settings">
                                             <connections>
-                                                <segue destination="xiD-cW-vdX" kind="show" id="rpW-Kg-ocH"/>
+                                                <action selector="settings:" destination="BYZ-38-t0r" id="zE2-0j-neZ"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Call" id="5qT-1J-SRk"/>
@@ -91,7 +92,7 @@
         <!--SettingsViewController-->
         <scene sceneID="vNa-rk-AQD">
             <objects>
-                <viewController id="xiD-cW-vdX" userLabel="SettingsViewController" customClass="SettingsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settingsViewController" id="xiD-cW-vdX" userLabel="SettingsViewController" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hab-Bo-btg"/>
                         <viewControllerLayoutGuide type="bottom" id="yrX-zq-Ci4"/>

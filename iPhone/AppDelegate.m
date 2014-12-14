@@ -56,20 +56,9 @@ static AppDelegate *sParent;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	// Configure logging framework
-	
 	[DDLog addLogger:[DDTTYLogger sharedInstance] withLogLevel:XMPP_LOG_FLAG_SEND_RECV];
 
-  // Setup the XMPP stream
-  
-	[self setupStream];
-
-	// Setup the view controllers
-
-	//[window setRootViewController:navigationController];
-	//[window makeKeyAndVisible];
-
-    
+ 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"rootViewController"];
     
@@ -80,6 +69,10 @@ static AppDelegate *sParent;
     
     
     self.chatViewController = [storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
+    self.settingsViewController = [storyboard instantiateViewControllerWithIdentifier:@"settingsViewController"];
+    
+    
+    [self setupStream];
     
 	if (![self connect])
 	{
@@ -312,52 +305,60 @@ static AppDelegate *sParent;
 
 - (BOOL)connect
 {
-
-    return [self connect:nil password:nil];
+    
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
+                                                        message:@"connect"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+    [alertView show];
+    
+    
+    NSString *myJID = [[NSUserDefaults standardUserDefaults] stringForKey:kXMPPmyJID];
+    NSString *myPassword = [[NSUserDefaults standardUserDefaults] stringForKey:kXMPPmyPassword];
+    
+    if (myJID == nil || myPassword == nil || [myJID isEqualToString:@""] ) {
+        myJID=[Config managementUser];
+        myPassword=[Config managementPassword];
+        [self connect:myJID password:myPassword];
+        [self sendLoginRequest];
+        
+    }
+    else
+    {
+        [Config setIsSupporter:true];
+        return [self connect:myJID password:myPassword];
+    }
+    
+    
+    return true;
+    //return [self connect:nil password:nil];
 }
 
 - (BOOL)connect: (NSString *)loginname password:(NSString *)loginpass
 {
 
-if (![xmppStream isDisconnected]) {
-		return YES;
-	}
+//if (![xmppStream isDisconnected]) {
+//		return YES;
+//	}
 
-	NSString *myJID = [[NSUserDefaults standardUserDefaults] stringForKey:kXMPPmyJID];
-	NSString *myPassword = [[NSUserDefaults standardUserDefaults] stringForKey:kXMPPmyPassword];
 
-	//
-	// If you don't want to use the Settings view to set the JID, 
-	// uncomment the section below to hard code a JID and password.
-	// 
-	// myJID = @"user@gmail.com/xmppframework";
-	// myPassword = @"";
-	
-    if (myJID == nil || myPassword == nil || [myJID isEqualToString:@""] ) {
-        myJID=[Config managementUser];
-        myPassword=[Config managementPassword];
+    
 
-    }
-    else
-    {
-        [Config setIsSupporter:true];
-    }
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"connecting phase 2"
+                                                        message:@"connecting phase 2"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+    [alertView show];
 
     if(!([Config isHelpSeeker]||[Config isSupporter])) return false;
     
-    if(loginname != nil)
-    {
 	[xmppStream setMyJID:[XMPPJID jidWithString:loginname]];
 	password = loginpass;
-        
-    }
-    else
-    {
-        [xmppStream setMyJID:[XMPPJID jidWithString:myJID]];
-        password = myPassword;
-    }
     
-        
         
 	NSError *error = nil;
 	if (![xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&error])
@@ -849,16 +850,21 @@ if (![xmppStream isDisconnected]) {
 
 - (IBAction)needHelpChat:(id)sender {
     [Config setIsHelpSeeker:true];
-    [self connect];
-    [self sendLoginRequest];
+
     
-
+    if (![Config isSupporter])
+    {
+        [self connect];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
+                                                            message:@"open Connect"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+    
 }
 
-- (IBAction)temp:(id)sender {
-    [navigationController presentViewController:chatViewController animated:YES completion:NULL];
-
-}
 
 
 
