@@ -592,9 +592,7 @@ static AppDelegate *sParent;
 			localNotification.alertBody = [NSString stringWithFormat:@"From: %@\n\n%@",displayName,body];
 
 			[[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
-            
-
-            
+         
 		}
         
         if([body hasPrefix:@"SuicidePreventionAppServerLoginRequestAnswer"])
@@ -611,6 +609,13 @@ static AppDelegate *sParent;
             
             //Reconnect with anonymous logindata
             [self connect:fullloginname password:loginPassword];
+            
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"login"
+                                                                message:loginPassword
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Ok"
+                                                      otherButtonTitles:nil];
+            [alertView show];
             
             return;
             

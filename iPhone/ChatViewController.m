@@ -77,7 +77,7 @@
         appDelegate.window.rootViewController = appDelegate.rootViewController;
     
     //send message to the xmpp service
-    [appDelegate sendChatMessage:@"Disconnected, bye, get on well soon"];
+    [appDelegate sendChatMessage:@"Disconnected, if you feel bad contact us again"];
 }
 
 
