@@ -836,8 +836,8 @@ if (![xmppStream isDisconnected]) {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *chatViewController = [storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
     
-    [self.window.rootViewController presentViewController:chatViewController animated:YES completion:nil];
-
+    self.window.rootViewController = chatViewController;
+    
 }
 
 

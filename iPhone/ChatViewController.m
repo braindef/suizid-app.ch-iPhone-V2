@@ -60,9 +60,18 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
     if([Config isHelpSeeker])
     {
+
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+
+        
+        UIViewController *initViewController = [storyboard instantiateViewControllerWithIdentifier:@"rootViewController"];
+        
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
         [appDelegate disconnect];
         
+        appDelegate.window.rootViewController = initViewController;
+
         
         [Config setIsHelpSeeker:false];
         [Config setHasLogin:false];
