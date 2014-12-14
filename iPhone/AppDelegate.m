@@ -71,11 +71,11 @@ static AppDelegate *sParent;
 
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *initViewController = [storyboard instantiateViewControllerWithIdentifier:@"rootViewController"];
+    self.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"rootViewController"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen]bounds]];
     
-    self.window.rootViewController = initViewController;
+    self.window.rootViewController = self.rootViewController;
     [self.window makeKeyAndVisible ];
     
     

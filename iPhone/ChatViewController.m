@@ -58,19 +58,14 @@
 
 - (IBAction)endChat:(id)sender {
     [self dismissViewControllerAnimated:YES completion:NULL];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    
     if([Config isHelpSeeker])
     {
 
-        
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 
-        
-        UIViewController *initViewController = [storyboard instantiateViewControllerWithIdentifier:@"rootViewController"];
-        
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
         [appDelegate disconnect];
-        
-        appDelegate.window.rootViewController = initViewController;
 
         
         [Config setIsHelpSeeker:false];
@@ -79,6 +74,10 @@
         
         [self.view endEditing:YES];
     }
+        appDelegate.window.rootViewController = appDelegate.rootViewController;
+    
+    //send message to the xmpp service
+    [appDelegate sendChatMessage:@"Disconnected, bye, get on well soon"];
 }
 
 

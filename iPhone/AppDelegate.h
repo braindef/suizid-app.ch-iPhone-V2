@@ -8,6 +8,7 @@
 @class SettingsViewController;
 @class ChatViewController;
 @class CallViewController;
+@class RootViewController;
 
 
 @interface AppDelegate : NSObject <UIApplicationDelegate, XMPPRosterDelegate>
@@ -53,6 +54,7 @@
 @property (nonatomic, strong) IBOutlet SettingsViewController *settingsViewController;
 @property (nonatomic, strong) IBOutlet ChatViewController *chatViewController;
 @property (nonatomic, strong) IBOutlet CallViewController *callViewController;
+@property (nonatomic, strong) IBOutlet RootViewController *rootViewController;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *loginButton;
 
 - (NSManagedObjectContext *)managedObjectContext_roster;
