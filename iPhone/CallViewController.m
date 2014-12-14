@@ -20,6 +20,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    //working
+    //NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"ino" ofType:@"wav"]];
+
+    //SystemSoundID mRing;
+    //AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &mRing);
+    //AudioServicesPlaySystemSound(mRing);
+    
+    //only working when not in background :(
+    //NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"ringtone" ofType:@"mp3"]];
+    //self.audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:nil] ;
+    //self.audioPlayer.numberOfLoops = 3;
+    
+    //[[AVAudioSession sharedInstance]setCategory:AVAudioSessionCategoryPlayback error: nil];
+    //[[AVAudioSession sharedInstance]setActive:YES error:nil];
+    //[[UIApplication sharedApplication]beginReceivingRemoteControlEvents];
+    
+    //[self.audioPlayer play];
+
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,27 +49,25 @@
 }
 
 /*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 - (IBAction)decline:(id)sender {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
     [appDelegate sendDecline];
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)accept:(id)sender {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
     [appDelegate sendAccept];
+    [self dismissViewControllerAnimated:YES completion:NULL];
     
     
     

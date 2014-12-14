@@ -9,18 +9,13 @@
 #import "ChatViewController.h"
 #import "AppDelegate.h"
 #import "Config.h"
-@interface ChatViewController ()
-
-@end
 
 @implementation ChatViewController
-
-@synthesize message;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
@@ -33,14 +28,14 @@
 }
 
 /*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 
 - (void)keyboardWillShow:(NSNotification *)notification {
@@ -62,14 +57,19 @@
 
 
 - (IBAction)endChat:(id)sender {
-
-    
-    //Dismiss keyboard
-    [self.view endEditing:YES];
-    
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    if([Config isHelpSeeker])
+    {
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-        [appDelegate endChat];
-
+        [appDelegate disconnect];
+        
+        
+        [Config setIsHelpSeeker:false];
+        [Config setHasLogin:false];
+        [Config setSupporter:nil];
+        
+        [self.view endEditing:YES];
+    }
 }
 
 
@@ -78,7 +78,6 @@
     NSString* input = message.text;
     [self appendToTextView:input sender:@"me"];
     
-    //delete the text from the inputfield
     [message setText:@""];
     
     //send message to the xmpp service
@@ -97,6 +96,10 @@
     [self.chatTextView scrollRangeToVisible:range];
 }
 
+- (IBAction)temp:(id)sender {
+}
 
+
+@synthesize message;
 
 @end

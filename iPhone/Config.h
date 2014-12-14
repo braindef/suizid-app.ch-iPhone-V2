@@ -37,14 +37,14 @@
 + (NSString *)helpSeeker;
 + (void)setHelpSeeker: (NSString*)newHelpSeeker;
 
-+ (BOOL)isSupporter;
-+ (void)setIsSupporter: (BOOL)newIsSupporter;
++ (BOOL *)isSupporter;
++ (void)setIsSupporter: (BOOL*)newIsSupporter;
 
-+ (BOOL)isHelpSeeker;
-+ (void)setIsHelpSeeker: (BOOL)newIsHelpSeeker;
++ (BOOL *)isHelpSeeker;
++ (void)setIsHelpSeeker: (BOOL*)newIsHelpSeeker;
 
-+ (BOOL )hasLogin;
-+ (void)setHasLogin: (BOOL)newHasLogin;
++ (BOOL *)hasLogin;
++ (void)setHasLogin: (BOOL*)newHasLogin;
 
 
 @end

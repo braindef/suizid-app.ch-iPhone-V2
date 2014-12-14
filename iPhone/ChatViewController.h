@@ -12,7 +12,7 @@
 
 @property (nonatomic,strong) IBOutlet UITextField *message;
 @property (weak, nonatomic) IBOutlet UITextView *chatTextView;
-//@property (weak, nonatomic) IBOutlet UIScrollView *chatScrollView;
+@property (weak, nonatomic) IBOutlet UIScrollView *chatScrollView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *keyboardHight;
 

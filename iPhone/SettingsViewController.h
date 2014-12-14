@@ -13,19 +13,17 @@ extern NSString *const kXMPPmyJID;
 extern NSString *const kXMPPmyPassword;
 
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController 
 {
-    UITextField *jidField;
-    UITextField *passwordField;
+  UITextField *jidField;
+  UITextField *passwordField;
 }
 
 @property (nonatomic,strong) IBOutlet UITextField *jidField;
 @property (nonatomic,strong) IBOutlet UITextField *passwordField;
-@property (nonatomic,strong) IBOutlet UITextField *serverBotJid;
 
 - (IBAction)done:(id)sender;
 - (IBAction)hideKeyboard:(id)sender;
 
-- (IBAction)openChat:(id)sender;
 
 @end

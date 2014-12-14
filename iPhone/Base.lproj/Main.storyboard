@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6V0-V7-4oQ">
     <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -36,14 +37,10 @@
                                     <navigationItem id="OPm-IR-Ypb">
                                         <barButtonItem key="leftBarButtonItem" title="Settings" id="0uF-lT-GlD" userLabel="Settings">
                                             <connections>
-                                                <segue destination="xiD-cW-vdX" kind="show" id="uOf-xN-5bj"/>
+                                                <segue destination="xiD-cW-vdX" kind="show" id="rpW-Kg-ocH"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Call" id="5qT-1J-SRk">
-                                            <connections>
-                                                <action selector="tempCall:" destination="BYZ-38-t0r" id="Zwh-mg-YEV"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Call" id="5qT-1J-SRk"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -53,7 +50,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="needHelp:" destination="TFZ-du-VRQ" eventType="touchUpInside" id="eEf-lI-Fsr"/>
+                                    <action selector="needHelpChat:" destination="TFZ-du-VRQ" eventType="touchUpInside" id="Q3j-WO-ogm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -72,11 +69,7 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <customObject id="TFZ-du-VRQ" customClass="AppDelegate">
-                    <connections>
-                        <outlet property="rootViewController" destination="BYZ-38-t0r" id="dYX-PX-0bI"/>
-                    </connections>
-                </customObject>
+                <customObject id="TFZ-du-VRQ" customClass="AppDelegate"/>
             </objects>
             <point key="canvasLocation" x="925" y="781"/>
         </scene>
@@ -92,11 +85,7 @@
                     <nil name="viewControllers"/>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XXb-rU-UWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="lRz-VQ-hTc" customClass="AppDelegate">
-                    <connections>
-                        <outlet property="navigationController" destination="6V0-V7-4oQ" id="uM9-qt-AIg"/>
-                    </connections>
-                </customObject>
+                <customObject id="lRz-VQ-hTc" customClass="AppDelegate"/>
             </objects>
             <point key="canvasLocation" x="1780" y="1245"/>
         </scene>
@@ -112,14 +101,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="supporter@suizid-app.ch" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CQf-ye-Far">
-                                <rect key="frame" x="126" y="72" width="183" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="hideKeyboard:" destination="xiD-cW-vdX" eventType="editingDidEndOnExit" id="97F-Ym-Mm5"/>
-                                </connections>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRd-9A-4mQ">
                                 <rect key="frame" x="16" y="76" width="102" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -136,9 +117,6 @@
                                 <rect key="frame" x="149" y="164" width="160" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="hideKeyboard:" destination="xiD-cW-vdX" eventType="editingDidEndOnExit" id="pae-4c-Ltg"/>
-                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Server Bot JID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NO2-Kq-yzl">
                                 <rect key="frame" x="16" y="168" width="125" height="21"/>
@@ -153,9 +131,6 @@
                                 <rect key="frame" x="126" y="117" width="183" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="hideKeyboard:" destination="xiD-cW-vdX" eventType="editingDidEndOnExit" id="fR1-88-DPg"/>
-                                </connections>
                             </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hqZ-Up-1nd">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -163,13 +138,18 @@
                                     <navigationItem title="Title" id="EFO-bT-xs2">
                                         <barButtonItem key="leftBarButtonItem" title="save" id="MXz-4I-zr0">
                                             <connections>
-                                                <action selector="done:" destination="xiD-cW-vdX" id="ujY-gq-Dl2"/>
+                                                <action selector="done:" destination="xiD-cW-vdX" id="WBP-nh-LRH"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="stats" id="di7-yb-fMO"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="supporter@suizid-app.ch" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CQf-ye-Far">
+                                <rect key="frame" x="126" y="72" width="183" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -198,17 +178,12 @@
                         <barButtonItem key="rightBarButtonItem" title="Save" id="EVf-Vi-VfF"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="jidField" destination="CQf-ye-Far" id="JdN-YV-0hH"/>
-                        <outlet property="passwordField" destination="rrS-5I-5hA" id="sgo-6l-vjJ"/>
-                        <outlet property="serverBotJid" destination="eil-Od-QX4" id="CGe-qX-3jc"/>
+                        <outlet property="jidField" destination="CQf-ye-Far" id="abc-AG-jbo"/>
+                        <outlet property="passwordField" destination="rrS-5I-5hA" id="iNm-Wj-0wW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ghj-JJ-Atr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="Glf-YX-WPE" customClass="AppDelegate">
-                    <connections>
-                        <outlet property="settingsViewController" destination="xiD-cW-vdX" id="XCI-uU-2GI"/>
-                    </connections>
-                </customObject>
+                <customObject id="Glf-YX-WPE" customClass="AppDelegate"/>
             </objects>
             <point key="canvasLocation" x="2646" y="788"/>
         </scene>
@@ -246,7 +221,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="accept:" destination="Nw4-a0-5Cw" eventType="touchUpInside" id="Keu-in-Hpk"/>
+                                    <action selector="accept:" destination="Nw4-a0-5Cw" eventType="touchUpInside" id="gYq-dk-210"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nb0-fh-Zvf">
@@ -269,7 +244,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="decline:" destination="Nw4-a0-5Cw" eventType="touchUpInside" id="AHl-MQ-9ux"/>
+                                    <action selector="decline:" destination="Nw4-a0-5Cw" eventType="touchUpInside" id="IBo-gn-GxC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -291,7 +266,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLD-ZJ-bBn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="5SC-7D-3Cp" customClass="AppDelegate">
                     <connections>
-                        <outlet property="callViewController" destination="Nw4-a0-5Cw" id="XiB-qI-BT3"/>
+                        <outlet property="callViewController" destination="Nw4-a0-5Cw" id="Ro7-lL-d8D"/>
                     </connections>
                 </customObject>
             </objects>
@@ -309,11 +284,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pHW-Vx-NoG">
-                                <rect key="frame" x="16" y="540" width="450" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hallo" translatesAutoresizingMaskIntoConstraints="NO" id="oYG-JY-791">
                                 <rect key="frame" x="6" y="70" width="578" height="445"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -330,7 +300,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="sendMessage:" destination="2zi-Tm-3vk" eventType="touchUpInside" id="Xa4-Oa-fR1"/>
+                                    <action selector="sendMessage:" destination="2zi-Tm-3vk" eventType="touchUpInside" id="dEX-uQ-oIm"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7T-vY-Kku">
@@ -339,12 +309,17 @@
                                     <navigationItem id="Mvs-01-rGY">
                                         <barButtonItem key="rightBarButtonItem" title="End Chat" id="2Ml-lG-Mi7">
                                             <connections>
-                                                <action selector="endChat:" destination="2zi-Tm-3vk" id="Pee-Sn-CfS"/>
+                                                <action selector="endChat:" destination="2zi-Tm-3vk" id="eCB-83-259"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pHW-Vx-NoG">
+                                <rect key="frame" x="16" y="540" width="450" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -364,15 +339,15 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="chatTextView" destination="oYG-JY-791" id="hd1-IO-Ujq"/>
+                        <outlet property="chatTextView" destination="oYG-JY-791" id="y4b-RU-d17"/>
                         <outlet property="keyboardHight" destination="MCX-CU-w0Z" id="eVy-j4-TEG"/>
-                        <outlet property="message" destination="pHW-Vx-NoG" id="Ii3-pU-I1o"/>
+                        <outlet property="message" destination="pHW-Vx-NoG" id="MIV-Nd-Y2t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bqJ-ma-dtP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="apK-E4-AuZ" customClass="AppDelegate">
                     <connections>
-                        <outlet property="chatViewController" destination="2zi-Tm-3vk" id="Fcn-eo-g8Z"/>
+                        <outlet property="chatViewController" destination="2zi-Tm-3vk" id="jhJ-uz-Zxd"/>
                     </connections>
                 </customObject>
             </objects>

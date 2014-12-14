@@ -1,54 +1,42 @@
-//
-//  AppDelegate.h
-//  iPhone
-//
-//  Created by Marc Landolt jun. on 14.11.14.
-//  Copyright (c) 2014 Marc Landolt jun. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+
 #import "XMPPFramework.h"
+
 #import <AVFoundation/AVFoundation.h>
 
 @class SettingsViewController;
 @class ChatViewController;
 @class CallViewController;
-@class RootViewController;
-@class EvaluateViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+@interface AppDelegate : NSObject <UIApplicationDelegate, XMPPRosterDelegate>
 {
-    XMPPStream *xmppStream;
-    XMPPReconnect *xmppReconnect;
+	XMPPStream *xmppStream;
+	XMPPReconnect *xmppReconnect;
     XMPPRoster *xmppRoster;
-    XMPPRosterCoreDataStorage *xmppRosterStorage;
+	XMPPRosterCoreDataStorage *xmppRosterStorage;
     XMPPvCardCoreDataStorage *xmppvCardStorage;
-    XMPPvCardTempModule *xmppvCardTempModule;
-    XMPPvCardAvatarModule *xmppvCardAvatarModule;
-    XMPPCapabilities *xmppCapabilities;
-    XMPPCapabilitiesCoreDataStorage *xmppCapabilitiesStorage;
+	XMPPvCardTempModule *xmppvCardTempModule;
+	XMPPvCardAvatarModule *xmppvCardAvatarModule;
+	XMPPCapabilities *xmppCapabilities;
+	XMPPCapabilitiesCoreDataStorage *xmppCapabilitiesStorage;
     
+	
+	NSString *password;
+	
+	BOOL customCertEvaluation;
+	
+	BOOL isXmppConnected;
+	
+	UIWindow *window;
+	UINavigationController *navigationController;
+    SettingsViewController *loginViewController;
+    ChatViewController *loginChatViewController;
+    CallViewController *loginCallViewController;
     
-    NSString *password;
-    
-    BOOL customCertEvaluation;
-    
-    BOOL isXmppConnected;
-
+    UIBarButtonItem *loginButton;
 }
-
-@property (strong, nonatomic) UIWindow *window;
-
-@property (weak, nonatomic) IBOutlet UINavigationController *navigationController;
-@property (weak, nonatomic) IBOutlet SettingsViewController *settingsViewController;
-@property (weak, nonatomic) IBOutlet ChatViewController *chatViewController;
-@property (weak, nonatomic) IBOutlet CallViewController *callViewController;
-@property (weak, nonatomic) IBOutlet RootViewController *rootViewController;
-@property (weak, nonatomic) IBOutlet EvaluateViewController *evaluateViewController;
-
-
-@property (nonatomic, strong) AVAudioPlayer *avSound;
 
 @property (nonatomic, strong, readonly) XMPPStream *xmppStream;
 @property (nonatomic, strong, readonly) XMPPReconnect *xmppReconnect;
@@ -58,11 +46,17 @@
 @property (nonatomic, strong, readonly) XMPPvCardAvatarModule *xmppvCardAvatarModule;
 @property (nonatomic, strong, readonly) XMPPCapabilities *xmppCapabilities;
 @property (nonatomic, strong, readonly) XMPPCapabilitiesCoreDataStorage *xmppCapabilitiesStorage;
+@property (nonatomic, strong) AVAudioPlayer *avSound;
+
+@property (nonatomic, strong) IBOutlet UIWindow *window;
+@property (nonatomic, strong) IBOutlet UINavigationController *navigationController;
+@property (nonatomic, strong) IBOutlet SettingsViewController *settingsViewController;
+@property (nonatomic, strong) IBOutlet ChatViewController *chatViewController;
+@property (nonatomic, strong) IBOutlet CallViewController *callViewController;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *loginButton;
 
 - (NSManagedObjectContext *)managedObjectContext_roster;
 - (NSManagedObjectContext *)managedObjectContext_capabilities;
-
-
 
 - (BOOL)connect;
 - (BOOL)connect: (NSString *)username password:(NSString *) password;
@@ -81,17 +75,10 @@
 - (void)sendDecline;
 - (void)sendAccept;
 
-- (IBAction)needHelp:(id)sender;
+- (IBAction)needHelpChat:(id)sender;
 
-- (void) endChat;
+- (IBAction)temp:(id)sender;
 
-- (IBAction)savedmylife:(id)sender;
-- (IBAction)improovedmysituation:(id)sender;
-- (IBAction)madeitworse:(id)sender;
-- (void) sendEvaluation:(NSString*) points;
-
-- (void) tempCall;
-
+@property (weak, nonatomic) IBOutlet UIButton *temp2;
 
 @end
-
