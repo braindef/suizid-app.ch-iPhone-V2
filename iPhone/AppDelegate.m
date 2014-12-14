@@ -79,6 +79,8 @@ static AppDelegate *sParent;
     [self.window makeKeyAndVisible ];
     
     
+    self.chatViewController = [storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
+    
 	if (![self connect])
 	{
 		dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.0 * NSEC_PER_SEC);
@@ -555,6 +557,14 @@ if (![xmppStream isDisconnected]) {
 
 	// A simple example of inbound message handling.
     
+    
+    //UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
+    //                                                    message:@"receive message"
+    //                                                   delegate:nil
+    //                                          cancelButtonTitle:@"Ok"
+    //                                          otherButtonTitles:nil];
+    //[alertView show];
+    
 	if ([message isChatMessageWithBody])
 	{
 		XMPPUserCoreDataStorageObject *user = [xmppRosterStorage userForJID:[message from]
@@ -672,7 +682,7 @@ if (![xmppStream isDisconnected]) {
         NSString *partnerShort = [jidComponents objectAtIndex:0];
         
         [chatViewController appendToTextView:body sender:partnerShort];
-
+        
         
 	}
 }
@@ -831,10 +841,6 @@ if (![xmppStream isDisconnected]) {
     [message addChild:body];
     
     [[self xmppStream] sendElement:message];
-    
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *chatViewController = [storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
     
     self.window.rootViewController = chatViewController;
     

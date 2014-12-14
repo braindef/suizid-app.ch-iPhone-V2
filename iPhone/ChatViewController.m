@@ -105,9 +105,6 @@
     [self.chatTextView scrollRangeToVisible:range];
 }
 
-- (IBAction)temp:(id)sender {
-}
-
 
 @synthesize message;
 
