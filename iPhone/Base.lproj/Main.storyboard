@@ -340,6 +340,7 @@
                     </view>
                     <connections>
                         <outlet property="chatTextView" destination="oYG-JY-791" id="y4b-RU-d17"/>
+                        <outlet property="keyboardHight" destination="8x0-qe-F3G" id="bQG-nT-VTJ"/>
                         <outlet property="message" destination="pHW-Vx-NoG" id="MIV-Nd-Y2t"/>
                     </connections>
                 </viewController>
