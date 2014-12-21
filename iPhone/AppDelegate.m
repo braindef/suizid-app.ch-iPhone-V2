@@ -949,7 +949,6 @@ static AppDelegate *sParent;
     if([Config isHelpSeeker])
     {
         
-        
         [self disconnect];
         
         
