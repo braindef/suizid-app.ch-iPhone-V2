@@ -9,7 +9,7 @@
 @class ChatViewController;
 @class CallViewController;
 @class RootViewController;
-
+@class EvaluateViewController;
 
 @interface AppDelegate : NSObject <UIApplicationDelegate, XMPPRosterDelegate>
 {
@@ -55,6 +55,7 @@
 @property (nonatomic, strong) IBOutlet ChatViewController *chatViewController;
 @property (nonatomic, strong) IBOutlet CallViewController *callViewController;
 @property (nonatomic, strong) IBOutlet RootViewController *rootViewController;
+@property (nonatomic, strong) IBOutlet EvaluateViewController *evaluateViewController;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *loginButton;
 
 - (NSManagedObjectContext *)managedObjectContext_roster;
@@ -76,6 +77,14 @@
 
 - (void)sendDecline;
 - (void)sendAccept;
+
+- (void)rescued;
+
+- (void)helped;
+
+- (void)madeworse;
+
+- (void)endEvaluate:(NSString *)points;
 
 - (void)needHelpChat;
 

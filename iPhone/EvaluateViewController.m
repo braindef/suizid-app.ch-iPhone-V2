@@ -7,10 +7,8 @@
 //
 
 #import "EvaluateViewController.h"
+#import "AppDelegate.h"
 
-@interface EvaluateViewController ()
-
-@end
 
 @implementation EvaluateViewController
 
@@ -34,4 +32,19 @@
 }
 */
 
+- (IBAction)savedmylife:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    [appDelegate rescued];
+}
+
+- (IBAction)improovedSituation:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    [appDelegate helped];
+
+}
+
+- (IBAction)madeItWorse:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    [appDelegate madeworse];
+}
 @end

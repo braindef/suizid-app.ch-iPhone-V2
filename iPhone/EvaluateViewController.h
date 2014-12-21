@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface EvaluateViewController : UIViewController
+- (IBAction)savedmylife:(id)sender;
+- (IBAction)improovedSituation:(id)sender;
+- (IBAction)madeItWorse:(id)sender;
 
 @end

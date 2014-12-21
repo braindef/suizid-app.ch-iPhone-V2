@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6V0-V7-4oQ">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -374,6 +373,7 @@
                                 </state>
                                 <connections>
                                     <action selector="savedmylife:" destination="TU0-EB-daw" eventType="touchUpInside" id="62y-HZ-kUZ"/>
+                                    <action selector="savedmylife:" destination="Mez-FT-egx" eventType="touchUpInside" id="cGQ-cN-zVF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzc-4C-kX3" userLabel="madeitworse">
@@ -384,6 +384,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="improovedSituation:" destination="Mez-FT-egx" eventType="touchUpInside" id="BT3-wc-b8d"/>
+                                    <action selector="madeItWorse:" destination="Mez-FT-egx" eventType="touchUpInside" id="6dY-j3-2DR"/>
                                     <action selector="madeitworse:" destination="TU0-EB-daw" eventType="touchUpInside" id="ueU-Qj-Xoo"/>
                                 </connections>
                             </button>
@@ -398,6 +400,7 @@
                                     <rect key="frame" x="173" y="179" width="256" height="42"/>
                                 </variation>
                                 <connections>
+                                    <action selector="improovedSituation:" destination="Mez-FT-egx" eventType="touchUpInside" id="eyj-oE-pkM"/>
                                     <action selector="improovedmysituation:" destination="TU0-EB-daw" eventType="touchUpInside" id="qOv-hU-A8t"/>
                                 </connections>
                             </button>

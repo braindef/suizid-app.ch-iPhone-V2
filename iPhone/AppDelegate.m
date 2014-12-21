@@ -3,6 +3,7 @@
 #import "SettingsViewController.h"
 #import "ChatViewController.h"
 #import "CallViewController.h"
+#import "EvaluateViewController.h"
 
 #import "GCDAsyncSocket.h"
 #import "XMPP.h"
@@ -52,6 +53,7 @@ static AppDelegate *sParent;
 @synthesize navigationController;
 @synthesize settingsViewController;
 @synthesize chatViewController;
+@synthesize evaluateViewController;
 @synthesize loginButton;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -70,7 +72,7 @@ static AppDelegate *sParent;
     
     self.chatViewController = [storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
     self.settingsViewController = [storyboard instantiateViewControllerWithIdentifier:@"settingsViewController"];
-    
+    self.evaluateViewController = [storyboard instantiateViewControllerWithIdentifier:@"evaluateViewController"];
     
     [self setupStream];
     
@@ -914,6 +916,43 @@ static AppDelegate *sParent;
 }
 
 
+- (void)rescued {
+    [self endEvaluate:@"rescude"];
+}
+
+- (void)helped {
+    [self endEvaluate:@"helped"];
+}
+
+- (void)madeworse {
+    [self endEvaluate:@"madeworse"];
+}
+
+- (void)endEvaluate:(NSString*) points {
+    NSXMLElement *body =[NSXMLElement elementWithName:@"body"];
+    [body setStringValue:@"SuicidePreventionAppServerSupporterRequest"];
+    
+    NSXMLElement *message = [NSXMLElement elementWithName:@"message"];
+    [message addAttributeWithName:@"type" stringValue:@"chat"];
+    [message addAttributeWithName:@"to" stringValue:[Config serverBotJid]];
+    [message addChild:body];
+    
+    [[self xmppStream] sendElement:message];
+    
+    if([Config isHelpSeeker])
+    {
+        
+        
+        [self disconnect];
+        
+        
+        [Config setIsHelpSeeker:false];
+        [Config setHasLogin:false];
+        [Config setSupporter:nil];
+        [Config setHelpSeeker:nil];
+        
+    }
+}
 
 
 @end
