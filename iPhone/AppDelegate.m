@@ -285,7 +285,20 @@ static AppDelegate *sParent;
     
     
     if ([Config isHelpSeeker]&&![Config hasLogin]) [self sendLoginRequest];
-    if ([Config hasLogin]) [self sendSupporterRequest];
+    
+    if ([Config hasLogin])
+    {
+        
+    [self sendSupporterRequest];
+    
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
+                                                            message:@"supporter request"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+        
+    }
     
     if ([Config isSupporter]) [self supporterLogin];
 
@@ -353,8 +366,20 @@ static AppDelegate *sParent;
 - (BOOL)connect: (NSString *)loginname password:(NSString *)loginpass
 {
 
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
+                                                        message:loginname
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+    [alertView show];
     
-
+    UIAlertView *alertView2 = [[UIAlertView alloc] initWithTitle:@"Error connecting"
+                                                        message:loginpass
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+    [alertView2 show];
+    
     [xmppStream setMyJID:[XMPPJID jidWithString:loginname]];
     password = loginpass;
     
@@ -363,7 +388,7 @@ static AppDelegate *sParent;
     if (![xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&error])
     {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
-                                                            message:loginpass
+                                                            message:@"Connction error, see logfile"
                                                            delegate:nil
                                                   cancelButtonTitle:@"Ok"
                                                   otherButtonTitles:nil];
@@ -612,11 +637,13 @@ static AppDelegate *sParent;
             [self connect:fullloginname password:loginPassword];
             
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"login"
-                                                                message:loginPassword
+                                                                message:@"anonymous loggin"
                                                                delegate:nil
                                                       cancelButtonTitle:@"Ok"
                                                       otherButtonTitles:nil];
             [alertView show];
+            
+            
             
             return;
             
@@ -633,7 +660,9 @@ static AppDelegate *sParent;
             [Config setSupporter:supporter];
             
 
-            //[navigationController presentViewController:chatViewController animated:YES completion:NULL];
+            
+            
+                self.window.rootViewController = chatViewController;
             
             return;
             
@@ -864,16 +893,13 @@ static AppDelegate *sParent;
 
 - (void)needHelpChat {
     [Config setIsHelpSeeker:true];
-
-
     
-    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"needhelp"
-                                                        message:@"open Connect"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil];
-    [alertView show];
+    //UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"needhelp"
+    //                                                    message:@"open Connect"
+    //                                                   delegate:nil
+    //                                          cancelButtonTitle:@"Ok"
+    //                                          otherButtonTitles:nil];
+    //[alertView show];
     
     if (![Config isSupporter])
     {
@@ -884,7 +910,6 @@ static AppDelegate *sParent;
     }
     
     [self sendSupporterRequest];
-    
     
 }
 

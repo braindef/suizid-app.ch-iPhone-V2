@@ -18,7 +18,7 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
     [message becomeFirstResponder];
 }
 
@@ -43,8 +43,20 @@
     NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect keyboardFrame = [kbFrame CGRectValue];
     
+    BOOL isPortrait = UIDeviceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation);
+    
     CGFloat height = keyboardFrame.size.height;
     
+    if(!isPortrait)
+    {
+        height = keyboardFrame.size.width;
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
+                                                            message:@"not portrait"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }
     self.keyboardHight.constant = height;
     
 }
@@ -53,6 +65,10 @@
     self.keyboardHight.constant = 0;
 }
 
+- (void)orientationChanged:(NSNotification *)notification{
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    [self.view endEditing:YES];
+}
 
 
 
@@ -71,6 +87,7 @@
         [Config setIsHelpSeeker:false];
         [Config setHasLogin:false];
         [Config setSupporter:nil];
+        [Config setHelpSeeker:nil];
         
         [self.view endEditing:YES];
     }

@@ -13,7 +13,7 @@
 
 }
 
-static NSString *servername=@"suizid-ap.ch";
+static NSString *servername=@"suizid-app.ch";
 
 static NSString *username=nil;
 static NSString *password=nil;
