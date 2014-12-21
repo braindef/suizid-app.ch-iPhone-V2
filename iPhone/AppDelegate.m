@@ -293,12 +293,12 @@ static AppDelegate *sParent;
         
     [self sendSupporterRequest];
     
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
-                                                            message:@"supporter request"
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Ok"
-                                                  otherButtonTitles:nil];
-        [alertView show];
+    //    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
+    //                                                        message:@"supporter request"
+    //                                                       delegate:nil
+    //                                              cancelButtonTitle:@"Ok"
+    //                                              otherButtonTitles:nil];
+    //    [alertView show];
         
     }
     
@@ -319,12 +319,12 @@ static AppDelegate *sParent;
 
 - (BOOL)connect
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
-                                                        message:@"connect"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil];
-    [alertView show];
+    //UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
+    //                                                    message:@"connect"
+    //                                                   delegate:nil
+    //                                          cancelButtonTitle:@"Ok"
+    //                                          otherButtonTitles:nil];
+    //[alertView show];
     
     if (![xmppStream isDisconnected]) {
     		return YES;
@@ -368,19 +368,19 @@ static AppDelegate *sParent;
 - (BOOL)connect: (NSString *)loginname password:(NSString *)loginpass
 {
 
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
-                                                        message:loginname
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil];
-    [alertView show];
+    //UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
+    //                                                    message:loginname
+    //                                                   delegate:nil
+    //                                          cancelButtonTitle:@"Ok"
+    //                                          otherButtonTitles:nil];
+    //[alertView show];
     
-    UIAlertView *alertView2 = [[UIAlertView alloc] initWithTitle:@"Error connecting"
-                                                        message:loginpass
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil];
-    [alertView2 show];
+    //UIAlertView *alertView2 = [[UIAlertView alloc] initWithTitle:@"Error connecting"
+    //                                                    message:loginpass
+    //                                                   delegate:nil
+    //                                          cancelButtonTitle:@"Ok"
+    //                                          otherButtonTitles:nil];
+    //[alertView2 show];
     
     [xmppStream setMyJID:[XMPPJID jidWithString:loginname]];
     password = loginpass;
@@ -638,12 +638,12 @@ static AppDelegate *sParent;
             //Reconnect with anonymous logindata
             [self connect:fullloginname password:loginPassword];
             
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"login"
-                                                                message:@"anonymous loggin"
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"Ok"
-                                                      otherButtonTitles:nil];
-            [alertView show];
+            //UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"login"
+            //                                                    message:@"anonymous loggin"
+            //                                                   delegate:nil
+            //                                          cancelButtonTitle:@"Ok"
+            //                                          otherButtonTitles:nil];
+            //[alertView show];
             
             
             
@@ -661,8 +661,12 @@ static AppDelegate *sParent;
             
             [Config setSupporter:supporter];
             
-
-            
+            //UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"supporter"
+            //                                                    message:@"supporter accept"
+            //                                                   delegate:nil
+            //                                          cancelButtonTitle:@"Ok"
+            //                                          otherButtonTitles:nil];
+            //[alertView show];
             
                 self.window.rootViewController = chatViewController;
             
@@ -836,12 +840,12 @@ static AppDelegate *sParent;
     [[self xmppStream] sendElement:message];
     
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"needhelp"
-                                                        message:[Config serverBotJid]
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil];
-    [alertView show];
+    //UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"needhelp"
+    //                                                    message:[Config serverBotJid]
+    //                                                   delegate:nil
+    //                                          cancelButtonTitle:@"Ok"
+    //                                          otherButtonTitles:nil];
+    //[alertView show];
 }
 
 - (void)supporterLogin
