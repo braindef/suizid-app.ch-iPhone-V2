@@ -46,5 +46,7 @@
 + (BOOL )hasLogin;
 + (void)setHasLogin: (BOOL)newHasLogin;
 
++ (BOOL )inSession;
++ (void)setInSession: (BOOL)newInSession;
 
 @end

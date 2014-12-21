@@ -30,6 +30,7 @@ static bool *isSupporter=false;
 static bool *isHelpSeeker=false;
 static bool *hasLogin=false;
 
+static bool *inSession=false;
 
 + (NSString*)servername { return servername; }
 + (void)setServername: (NSString*)newServername { servername = newServername; }
@@ -62,7 +63,12 @@ static bool *hasLogin=false;
 + (void)setIsHelpSeeker: (BOOL)newIsHelpSeeker { isHelpSeeker = newIsHelpSeeker; }
 
 + (BOOL)hasLogin { return hasLogin; }
-+ (void)setHasLogin: (BOOL)newHasLogin { hasLogin = newHasLogin; }	
++ (void)setHasLogin: (BOOL)newHasLogin { hasLogin = newHasLogin; }
+
++ (BOOL)inSession { return inSession; }
++ (void)setInSession: (BOOL)newInSession { inSession = newInSession; }
+
+
 @end
 
 

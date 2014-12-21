@@ -73,6 +73,8 @@ static AppDelegate *sParent;
     self.chatViewController = [storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
     self.settingsViewController = [storyboard instantiateViewControllerWithIdentifier:@"settingsViewController"];
     self.evaluateViewController = [storyboard instantiateViewControllerWithIdentifier:@"evaluateViewController"];
+    self.callViewController = [storyboard instantiateViewControllerWithIdentifier:@"callViewController"];
+    
     
     [self setupStream];
     
@@ -336,12 +338,12 @@ static AppDelegate *sParent;
     if(myJID!=nil && ![myJID isEqualToString:@""] && myPassword!=nil && ![myPassword isEqualToString:@""])
     {
         [Config setIsSupporter:true];
-        UIAlertView *alertView2 = [[UIAlertView alloc] initWithTitle:@"Error connecting"
-                                                            message:@"isSupporter=true"
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Ok"
-                                                  otherButtonTitles:nil];
-    if([Config isSupporter]==true)    [alertView2 show];
+        //UIAlertView *alertView2 = [[UIAlertView alloc] initWithTitle:@"Error connecting"
+        //                                                    message:@"isSupporter=true"
+        //                                                   delegate:nil
+        //                                          cancelButtonTitle:@"Ok"
+        //                                          otherButtonTitles:nil];
+    //if([Config isSupporter]==true)    [alertView2 show];
                                   
     }
     
@@ -395,12 +397,8 @@ static AppDelegate *sParent;
                                                   cancelButtonTitle:@"Ok"
                                                   otherButtonTitles:nil];
         [alertView show];
-        
         DDLogError(@"Error connecting: %@", error);
-        
-        
         return NO;
-        
     }
     
     
@@ -687,6 +685,12 @@ static AppDelegate *sParent;
         if([body hasPrefix:@"SuicidePreventionAppServerSupporterRequestCalling;"])
         {
 
+            if([Config inSession])
+            {
+                [self sendDecline];
+                return;
+            }
+            
             NSArray *mesg = [body componentsSeparatedByString:@";"];
             NSString *helpSeekerString = [mesg objectAtIndex:1];
             
@@ -707,17 +711,12 @@ static AppDelegate *sParent;
             
             [self.avSound play];
             
-            //[self.navigationController presentViewController:self.callViewController animated:YES completion:NULL];
             
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UIViewController *callViewController = [storyboard instantiateViewControllerWithIdentifier:@"callViewController"];
-            
-            [self.window.rootViewController presentViewController:callViewController animated:YES completion:nil];
-
+        self.window.rootViewController = self.callViewController;
+      
             return;
             
         }
-        
         
         NSString *partner = [message fromStr];
         NSArray *jidComponents = [partner componentsSeparatedByString:@"@"];
@@ -891,6 +890,8 @@ static AppDelegate *sParent;
     [message addChild:body];
     
     [[self xmppStream] sendElement:message];
+    
+    [Config setInSession:true];
     
     self.window.rootViewController = chatViewController;
     

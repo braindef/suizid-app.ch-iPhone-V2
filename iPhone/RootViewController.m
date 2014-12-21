@@ -207,7 +207,7 @@
 
 - (IBAction)needHelpChat:(id)sender {
      
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Supporter Rufen"
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Supporter rufen"
                                                         message:@"wirklich einen Supporter rufen?"
                                                        delegate:self
                                                cancelButtonTitle:@"Ja"
