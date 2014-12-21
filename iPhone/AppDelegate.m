@@ -937,6 +937,7 @@ static AppDelegate *sParent;
     [message addAttributeWithName:@"to" stringValue:[Config serverBotJid]];
     [message addChild:body];
     
+    
     [[self xmppStream] sendElement:message];
     
     if([Config isHelpSeeker])
