@@ -205,7 +205,19 @@
 }
 
 
-
-
-
+- (IBAction)needHelpChat:(id)sender {
+    [Config setIsHelpSeeker:true];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    [appDelegate needHelpChat];
+     
+     
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"needhelp"
+                                                        message:@"open Connect"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+    [alertView show];
+    
+}
 @end

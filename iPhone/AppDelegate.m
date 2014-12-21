@@ -293,7 +293,6 @@ static AppDelegate *sParent;
 
 - (void)goOffline
 {
-    
 	XMPPPresence *presence = [XMPPPresence presenceWithType:@"unavailable"];
 	
 	[[self xmppStream] sendElement:presence];
@@ -305,8 +304,6 @@ static AppDelegate *sParent;
 
 - (BOOL)connect
 {
-    
-    
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
                                                         message:@"connect"
                                                        delegate:nil
@@ -314,69 +311,73 @@ static AppDelegate *sParent;
                                               otherButtonTitles:nil];
     [alertView show];
     
+    if (![xmppStream isDisconnected]) {
+    		return YES;
+    }
     
     NSString *myJID = [[NSUserDefaults standardUserDefaults] stringForKey:kXMPPmyJID];
     NSString *myPassword = [[NSUserDefaults standardUserDefaults] stringForKey:kXMPPmyPassword];
-    
-    if (myJID == nil || myPassword == nil || [myJID isEqualToString:@""] ) {
-        myJID=[Config managementUser];
-        myPassword=[Config managementPassword];
-        [self connect:myJID password:myPassword];
-        [self sendLoginRequest];
-        
-    }
-    else
+
+    if(myJID!=nil && ![myJID isEqualToString:@""] && myPassword!=nil && ![myPassword isEqualToString:@""])
     {
         [Config setIsSupporter:true];
-        return [self connect:myJID password:myPassword];
+        UIAlertView *alertView2 = [[UIAlertView alloc] initWithTitle:@"Error connecting"
+                                                            message:@"isSupporter=true"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+    if([Config isSupporter]==true)    [alertView2 show];
+                                  
+    }
+    
+    if([Config isHelpSeeker])
+    {
+        [self connect: [Config managementUser] password:[Config managementPassword]];
+        [self sendLoginRequest];
+    }
+    
+    if([Config isSupporter])
+    {
+        [self connect: myJID password:myPassword];
+        //[self connect: [Config managementUser] password:[Config managementPassword]];
     }
     
     
     return true;
     //return [self connect:nil password:nil];
+
+
+
 }
 
 - (BOOL)connect: (NSString *)loginname password:(NSString *)loginpass
 {
 
-//if (![xmppStream isDisconnected]) {
-//		return YES;
-//	}
-
-
     
 
+    [xmppStream setMyJID:[XMPPJID jidWithString:loginname]];
+    password = loginpass;
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"connecting phase 2"
-                                                        message:@"connecting phase 2"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil];
-    [alertView show];
-
-    if(!([Config isHelpSeeker]||[Config isSupporter])) return false;
     
-	[xmppStream setMyJID:[XMPPJID jidWithString:loginname]];
-	password = loginpass;
-    
+    NSError *error = nil;
+    if (![xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&error])
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
+                                                            message:loginpass
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
         
-	NSError *error = nil;
-	if (![xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&error])
-	{
-		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting" 
-		                                                    message:@"See console for error details." 
-		                                                   delegate:nil 
-		                                          cancelButtonTitle:@"Ok" 
-		                                          otherButtonTitles:nil];
-		[alertView show];
-
-		DDLogError(@"Error connecting: %@", error);
-
-		return NO;
-	}
+        DDLogError(@"Error connecting: %@", error);
+        
+        
+        return NO;
+        
+    }
     
-
-
+    
+    
 	return YES;
 }
 
@@ -802,6 +803,14 @@ static AppDelegate *sParent;
     [message addChild:body];
     
     [[self xmppStream] sendElement:message];
+    
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"needhelp"
+                                                        message:[Config serverBotJid]
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+    [alertView show];
 }
 
 - (void)supporterLogin
@@ -853,20 +862,29 @@ static AppDelegate *sParent;
 }
 
 
-- (IBAction)needHelpChat:(id)sender {
+- (void)needHelpChat {
     [Config setIsHelpSeeker:true];
 
+
+    
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"needhelp"
+                                                        message:@"open Connect"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+    [alertView show];
     
     if (![Config isSupporter])
     {
-        [self connect];
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
-                                                            message:@"open Connect"
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Ok"
-                                                  otherButtonTitles:nil];
-        [alertView show];
+
+        [self connect: [Config managementUser] password:[Config managementPassword]];
+        [self sendLoginRequest];
+
     }
+    
+    [self sendSupporterRequest];
+    
     
 }
 
