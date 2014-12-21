@@ -50,12 +50,12 @@
     if(!isPortrait)
     {
         height = keyboardFrame.size.width;
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
-                                                            message:@"not portrait"
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Ok"
-                                                  otherButtonTitles:nil];
-        [alertView show];
+        //UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
+        //                                                    message:@"not portrait"
+        //                                                   delegate:nil
+        //                                          cancelButtonTitle:@"Ok"
+        //                                          otherButtonTitles:nil];
+        //[alertView show];
     }
     self.keyboardHight.constant = height;
     
