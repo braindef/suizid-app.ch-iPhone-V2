@@ -930,7 +930,9 @@ static AppDelegate *sParent;
 
 - (void)endEvaluate:(NSString*) points {
     NSXMLElement *body =[NSXMLElement elementWithName:@"body"];
-    [body setStringValue:@"SuicidePreventionAppServerSupporterRequest"];
+    [body setStringValue:[NSString stringWithFormat:@"SuicidePreventionAppServerHelpSeekerEndSession;%@;%@", points, [Config supporter]]];
+    
+    
     
     NSXMLElement *message = [NSXMLElement elementWithName:@"message"];
     [message addAttributeWithName:@"type" stringValue:@"chat"];
@@ -953,6 +955,9 @@ static AppDelegate *sParent;
         [Config setHelpSeeker:nil];
         
     }
+    
+        self.window.rootViewController = self.rootViewController;
+
 }
 
 
