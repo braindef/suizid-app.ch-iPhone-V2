@@ -206,18 +206,20 @@
 
 
 - (IBAction)needHelpChat:(id)sender {
-
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-    [appDelegate needHelpChat];
      
-     
-    //UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"needhelp"
-    //                                                    message:@"open Connect"
-    //                                                   delegate:nil
-    //                                           cancelButtonTitle:@"Ok"
-    //                                          otherButtonTitles:nil];
-    //[alertView show];
-    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Supporter Rufen"
+                                                        message:@"wirklich einen Supporter rufen?"
+                                                       delegate:self
+                                               cancelButtonTitle:@"Ja"
+                                              otherButtonTitles:@"Nein", nil];
+    [alertView show];
 }
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+        [appDelegate needHelpChat];
+    }
+}
+
 @end
