@@ -870,6 +870,13 @@ static AppDelegate *sParent;
 - (void)sendDecline
 {
     [self sendDecline: [Config helpSeeker]];
+    
+    self.window.rootViewController = [self rootViewController];
+    
+    [timeout invalidate];
+    timeout = nil;
+    
+    [Config setInSession:false];
 }
 
 
@@ -888,12 +895,7 @@ static AppDelegate *sParent;
     
     [[self xmppStream] sendElement:message];
     
-    self.window.rootViewController = [self rootViewController];
-    
-    [timeout invalidate];
-    timeout = nil;
-    
-    [Config setInSession:false];
+
 }
 
 - (void)sendAccept
