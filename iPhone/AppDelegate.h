@@ -37,6 +37,7 @@
     CallViewController *loginCallViewController;
     
     UIBarButtonItem *loginButton;
+
 }
 
 @property (nonatomic, strong, readonly) XMPPStream *xmppStream;
@@ -57,6 +58,7 @@
 @property (nonatomic, strong) IBOutlet RootViewController *rootViewController;
 @property (nonatomic, strong) IBOutlet EvaluateViewController *evaluateViewController;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *loginButton;
+@property (nonatomic, strong) NSTimer *timeout;
 
 - (NSManagedObjectContext *)managedObjectContext_roster;
 - (NSManagedObjectContext *)managedObjectContext_capabilities;

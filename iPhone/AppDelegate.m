@@ -55,6 +55,7 @@ static AppDelegate *sParent;
 @synthesize chatViewController;
 @synthesize evaluateViewController;
 @synthesize loginButton;
+@synthesize timeout;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -713,6 +714,8 @@ static AppDelegate *sParent;
             
             
         self.window.rootViewController = self.callViewController;
+            
+            timeout = [NSTimer scheduledTimerWithTimeInterval:45 target:self selector:@selector(sendDecline) userInfo:nil repeats:NO];
       
             return;
             
@@ -874,6 +877,11 @@ static AppDelegate *sParent;
     [message addChild:body];
     
     [[self xmppStream] sendElement:message];
+    
+    self.window.rootViewController = [self rootViewController];
+    
+    [timeout invalidate];
+    timeout = nil;
 }
 
 - (void)sendAccept
@@ -895,6 +903,8 @@ static AppDelegate *sParent;
     
     self.window.rootViewController = chatViewController;
     
+    [timeout invalidate];
+    timeout = nil;
 }
 
 
