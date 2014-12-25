@@ -922,7 +922,7 @@ static AppDelegate *sParent;
 
 
 - (void)rescued {
-    [self endEvaluate:@"rescude"];
+    [self endEvaluate:@"rescued"];
 }
 
 - (void)helped {
