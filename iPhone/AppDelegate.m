@@ -691,6 +691,7 @@ static AppDelegate *sParent;
                 [self sendDecline];
                 return;
             }
+            [Config setInSession:true];
             
             NSArray *mesg = [body componentsSeparatedByString:@";"];
             NSString *helpSeekerString = [mesg objectAtIndex:1];
@@ -882,6 +883,8 @@ static AppDelegate *sParent;
     
     [timeout invalidate];
     timeout = nil;
+    
+    [Config setInSession:false];
 }
 
 - (void)sendAccept
@@ -899,7 +902,7 @@ static AppDelegate *sParent;
     
     [[self xmppStream] sendElement:message];
     
-    [Config setInSession:true];
+    
     
     self.window.rootViewController = chatViewController;
     
@@ -971,6 +974,8 @@ static AppDelegate *sParent;
     }
     
         self.window.rootViewController = self.rootViewController;
+    
+
 
 }
 

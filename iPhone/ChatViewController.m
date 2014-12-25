@@ -78,8 +78,8 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
     [self.view endEditing:YES];
+
     
-    [Config setInSession:false];    
     //send message to the xmpp service
     if ([Config isSupporter]&&![Config helpSeeker]) {
         [appDelegate sendChatMessage:@"Disconnected, if you feel bad contact us again"];
@@ -91,6 +91,7 @@
     [appDelegate sendChatMessage:@"Disconnected, bye"];
     appDelegate.window.rootViewController = appDelegate.evaluateViewController;
     }
+        [Config setInSession:false];
 }
 
 
