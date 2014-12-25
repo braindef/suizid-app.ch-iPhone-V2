@@ -81,7 +81,7 @@
 
     
     //send message to the xmpp service
-    if ([Config isSupporter]&&![Config helpSeeker]) {
+    if ([Config isSupporter]&&![Config isHelpSeeker]) {
         [appDelegate sendChatMessage:@"Disconnected, if you feel bad contact us again"];
         appDelegate.window.rootViewController = appDelegate.rootViewController;
         

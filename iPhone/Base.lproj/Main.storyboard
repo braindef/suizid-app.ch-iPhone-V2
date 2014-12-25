@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6V0-V7-4oQ">
     <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -365,8 +366,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpV-D1-tYP" userLabel="Savedmylife">
-                                <rect key="frame" x="212" y="60" width="176" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <rect key="frame" x="151" y="120" width="299" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="299" id="qB1-TZ-ULd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Saved my life">
                                     <color key="titleColor" red="0.02595118959" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -375,10 +379,10 @@
                                     <action selector="savedmylife:" destination="Mez-FT-egx" eventType="touchUpInside" id="cGQ-cN-zVF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLq-93-Y3Q" userLabel="improovedmysituation">
-                                <rect key="frame" x="147" y="276" width="307" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLq-93-Y3Q" userLabel="improovedmysituation">
+                                <rect key="frame" x="192" y="279" width="216" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="improoved my situation">
+                                <state key="normal" title="improoved situation">
                                     <color key="titleColor" red="1" green="0.60114057009999999" blue="0.059987612849999997" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -390,8 +394,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzc-4C-kX3" userLabel="madeitworse">
-                                <rect key="frame" x="208" y="512" width="185" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <rect key="frame" x="198" y="448" width="204" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="made it worse">
                                     <color key="titleColor" red="1" green="0.023573720190000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -400,14 +404,20 @@
                                     <action selector="madeItWorse:" destination="Mez-FT-egx" eventType="touchUpInside" id="6dY-j3-2DR"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rate Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4T-EI-GLT">
+                                <rect key="frame" x="85" y="28" width="430" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="mzc-4C-kX3" secondAttribute="centerX" id="7sX-4F-JJc"/>
-                            <constraint firstItem="bpV-D1-tYP" firstAttribute="top" secondItem="QTd-xw-V5k" secondAttribute="bottom" constant="40" id="9P7-SW-846"/>
+                            <constraint firstItem="bpV-D1-tYP" firstAttribute="top" secondItem="QTd-xw-V5k" secondAttribute="bottom" constant="100" id="9P7-SW-846"/>
                             <constraint firstAttribute="centerX" secondItem="bpV-D1-tYP" secondAttribute="centerX" id="XLz-TJ-qlw"/>
                             <constraint firstAttribute="centerX" secondItem="lLq-93-Y3Q" secondAttribute="centerX" id="asb-0T-rn3"/>
-                            <constraint firstItem="qhh-rq-02M" firstAttribute="top" secondItem="mzc-4C-kX3" secondAttribute="bottom" constant="40" id="jzf-A5-s5K"/>
+                            <constraint firstItem="qhh-rq-02M" firstAttribute="top" secondItem="mzc-4C-kX3" secondAttribute="bottom" constant="100" id="jzf-A5-s5K"/>
                             <constraint firstAttribute="centerY" secondItem="lLq-93-Y3Q" secondAttribute="centerY" id="zsC-hK-obD"/>
                         </constraints>
                     </view>
@@ -419,7 +429,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="2640" y="1772"/>
+            <point key="canvasLocation" x="2383" y="1761.5"/>
         </scene>
     </scenes>
     <resources>

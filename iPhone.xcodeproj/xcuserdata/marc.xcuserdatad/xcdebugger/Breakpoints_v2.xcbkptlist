@@ -164,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iPhone/ChatViewController.m"
-            timestampString = "440871516.134713"
+            timestampString = "441200534.906432"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "-sendMessage:"
             landmarkType = "5">
          </BreakpointContent>
