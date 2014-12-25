@@ -686,18 +686,20 @@ static AppDelegate *sParent;
         if([body hasPrefix:@"SuicidePreventionAppServerSupporterRequestCalling;"])
         {
 
-            if([Config inSession])
-            {
-                [self sendDecline];
-                return;
-            }
-            [Config setInSession:true];
+
             
             NSArray *mesg = [body componentsSeparatedByString:@";"];
             NSString *helpSeekerString = [mesg objectAtIndex:1];
             
             NSArray *helpSeekerArray = [helpSeekerString componentsSeparatedByString:@"/"];
             NSString *helpSeeker = [helpSeekerArray objectAtIndex:0];
+            
+            if([Config inSession])
+            {
+                [self sendDecline: helpSeeker];
+                return;
+            }
+            [Config setInSession:true];
             
             [Config setHelpSeeker:helpSeeker];
             
@@ -864,11 +866,18 @@ static AppDelegate *sParent;
     [[self xmppStream] sendElement:message];
 }
 
+
 - (void)sendDecline
+{
+    [self sendDecline: [Config helpSeeker]];
+}
+
+
+- (void)sendDecline:(NSString*) newHelpseeker
 {
     NSXMLElement *body =[NSXMLElement elementWithName:@"body"];
     
-    NSString *declineMessage = [NSString stringWithFormat:@"SuicidePreventionAppServerSupporterRequestCallingDecline;%@", [Config helpSeeker]];
+    NSString *declineMessage = [NSString stringWithFormat:@"SuicidePreventionAppServerSupporterRequestCallingDecline;%@", newHelpseeker];
     
     [body setStringValue:declineMessage];
     
