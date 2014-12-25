@@ -932,6 +932,8 @@ static AppDelegate *sParent;
     //                                          otherButtonTitles:nil];
     //[alertView show];
     
+    [Config setInSession:true];
+    
     if (![Config isSupporter])
     {
 
@@ -984,8 +986,8 @@ static AppDelegate *sParent;
         
     }
     
-        self.window.rootViewController = self.rootViewController;
-    
+    self.window.rootViewController = self.rootViewController;
+    [Config setInSession:false];
 
 
 }

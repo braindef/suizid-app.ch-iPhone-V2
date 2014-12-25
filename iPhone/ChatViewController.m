@@ -84,6 +84,7 @@
     if ([Config isSupporter]&&![Config isHelpSeeker]) {
         [appDelegate sendChatMessage:@"Disconnected, if you feel bad contact us again"];
         appDelegate.window.rootViewController = appDelegate.rootViewController;
+        [Config setInSession:false];
         
     }
     else
@@ -91,7 +92,7 @@
     [appDelegate sendChatMessage:@"Disconnected, bye"];
     appDelegate.window.rootViewController = appDelegate.evaluateViewController;
     }
-        [Config setInSession:false];
+
 }
 
 
