@@ -25,15 +25,6 @@
                                     <constraint firstAttribute="height" constant="200" id="jQe-Qa-Am1"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2c-KE-4ac" userLabel="Ineedhelp">
-                                <rect key="frame" x="262" y="550" width="76" height="30"/>
-                                <state key="normal" title="I need help">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="needHelpChat:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dHZ-2x-wNy"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call help" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mQ-T9-fBe" userLabel="CallSupporter">
                                 <rect key="frame" x="249" y="153" width="103" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
@@ -44,15 +35,24 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <items>
                                     <navigationItem id="OPm-IR-Ypb">
-                                        <barButtonItem key="leftBarButtonItem" title="Settings" id="0uF-lT-GlD" userLabel="Settings">
+                                        <barButtonItem key="leftBarButtonItem" title="Einstellugnen" id="0uF-lT-GlD" userLabel="Settings">
                                             <connections>
                                                 <action selector="settings:" destination="BYZ-38-t0r" id="zE2-0j-neZ"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Call" id="5qT-1J-SRk"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2c-KE-4ac" userLabel="Ineedhelp">
+                                <rect key="frame" x="153" y="550" width="294" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <state key="normal" title="Ich brauche Hilfe">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="needHelpChat:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dHZ-2x-wNy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.84120417869999997" green="0.89055912329999998" blue="0.9124490489" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -71,7 +71,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <customObject id="TFZ-du-VRQ" customClass="AppDelegate"/>
             </objects>
-            <point key="canvasLocation" x="925" y="781"/>
+            <point key="canvasLocation" x="1034" y="781"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7DU-ke-DsN">
@@ -101,13 +101,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRd-9A-4mQ">
-                                <rect key="frame" x="16" y="87" width="102" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGE-7W-mtX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passwort" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGE-7W-mtX">
                                 <rect key="frame" x="16" y="132" width="102" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -146,10 +140,15 @@
                                                 <action selector="done:" destination="xiD-cW-vdX" id="WBP-nh-LRH"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="stats" id="di7-yb-fMO"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRd-9A-4mQ">
+                                <rect key="frame" x="16" y="87" width="102" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -210,13 +209,13 @@
                                     <constraint firstAttribute="width" constant="200" id="xn6-pt-0gr"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rf-7B-7xd" userLabel="accept">
-                                <rect key="frame" x="192" y="433" width="66" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rf-7B-7xd" userLabel="accept">
+                                <rect key="frame" x="138" y="433" width="120" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="66" id="DD5-vJ-uka"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Accept">
+                                <state key="normal" title="Annehmen">
                                     <color key="titleColor" red="0.02595118959" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -230,16 +229,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFt-e6-J61" userLabel="CallSupporter">
-                                <rect key="frame" x="215" y="28" width="170" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Support Anfrage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFt-e6-J61" userLabel="CallSupporter">
+                                <rect key="frame" x="182" y="28" width="237" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5D-Xj-ihI" userLabel="decline">
-                                <rect key="frame" x="343" y="433" width="66" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5D-Xj-ihI" userLabel="decline">
+                                <rect key="frame" x="343" y="433" width="120" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Decline">
+                                <state key="normal" title="Ablehnen">
                                     <color key="titleColor" red="1" green="0.023573720190000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -270,7 +269,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="925" y="1778"/>
+            <point key="canvasLocation" x="958" y="1778"/>
         </scene>
         <!--ChatViewController-->
         <scene sceneID="CBV-cE-zPR">
@@ -290,7 +289,7 @@
                                     <constraint firstAttribute="width" constant="80" id="6kV-Sx-vfb"/>
                                     <constraint firstAttribute="height" constant="30" id="hZ4-P0-9r2"/>
                                 </constraints>
-                                <state key="normal" title="Send">
+                                <state key="normal" title="Senden">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -301,7 +300,7 @@
                                 <rect key="frame" x="6" y="20" width="588" height="50"/>
                                 <items>
                                     <navigationItem id="Mvs-01-rGY">
-                                        <barButtonItem key="rightBarButtonItem" title="End Chat" id="2Ml-lG-Mi7">
+                                        <barButtonItem key="rightBarButtonItem" title="Chat beenden" id="2Ml-lG-Mi7">
                                             <connections>
                                                 <action selector="endChat:" destination="2zi-Tm-3vk" id="eCB-83-259"/>
                                             </connections>
@@ -365,13 +364,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpV-D1-tYP" userLabel="Savedmylife">
-                                <rect key="frame" x="151" y="120" width="299" height="52"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpV-D1-tYP" userLabel="Savedmylife">
+                                <rect key="frame" x="136" y="120" width="329" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="299" id="qB1-TZ-ULd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="Saved my life">
+                                <state key="normal" title="Mein Leben gerettet">
                                     <color key="titleColor" red="0.02595118959" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -379,10 +378,10 @@
                                     <action selector="savedmylife:" destination="Mez-FT-egx" eventType="touchUpInside" id="cGQ-cN-zVF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLq-93-Y3Q" userLabel="improovedmysituation">
-                                <rect key="frame" x="192" y="279" width="216" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLq-93-Y3Q" userLabel="improovedmysituation">
+                                <rect key="frame" x="180" y="279" width="241" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="improoved situation">
+                                <state key="normal" title="Situation verbessert">
                                     <color key="titleColor" red="1" green="0.60114057009999999" blue="0.059987612849999997" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -393,10 +392,16 @@
                                     <action selector="improovedSituation:" destination="Mez-FT-egx" eventType="touchUpInside" id="eyj-oE-pkM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzc-4C-kX3" userLabel="madeitworse">
-                                <rect key="frame" x="198" y="448" width="204" height="52"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bewerte Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4T-EI-GLT">
+                                <rect key="frame" x="85" y="28" width="430" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzc-4C-kX3" userLabel="madeitworse">
+                                <rect key="frame" x="180" y="448" width="241" height="52"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="made it worse">
+                                <state key="normal" title="Verschlimmert">
                                     <color key="titleColor" red="1" green="0.023573720190000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -404,12 +409,6 @@
                                     <action selector="madeItWorse:" destination="Mez-FT-egx" eventType="touchUpInside" id="6dY-j3-2DR"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rate Supporter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4T-EI-GLT">
-                                <rect key="frame" x="85" y="28" width="430" height="54"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -429,7 +428,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="2383" y="1761.5"/>
+            <point key="canvasLocation" x="2428" y="1761"/>
         </scene>
     </scenes>
     <resources>
